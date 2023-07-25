@@ -5,7 +5,7 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Технологический номер оборудования
         /// </summary>
-        public string TechnologicalName { get; set; } = "";
+        public string TechnologicalNumber { get; set; } = "";
 
         /// <summary>
         /// Наименование механизма
@@ -20,32 +20,32 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Коэффициент (кратность) пускового тока
         /// </summary>
-        public double StartingCurrentMultiplicity { get; set; } = -1;
+        public double StartingCurrentMultiplicity { get; set; } = 1;
 
         /// <summary>
         /// Номинальная электрическая мощность кВт
         /// </summary>
-        public double RatedElectricPower { get; set; } = -1;
+        public double RatedElectricPower { get; set; } = 0.1;
 
         /// <summary>
         /// Коэффициент использования
         /// </summary>
-        public double UsageFactor { get; set; } = -1;
+        public double UsageFactor { get; set; } = 0.1;
 
         /// <summary>
         /// Коэффициент мощности косинус фи
         /// </summary>
-        public double PowerFactor { get; set; } = -1;
+        public double PowerFactor { get; set; } = 0.01;
 
         /// <summary>
         /// Коэффициент мощности тангенс фи
         /// </summary>
-        public double TanPowerFactor { get; set; } = -1;
+        public double TanPowerFactor { get; set; } = 0.01;
 
         /// <summary>
         /// Коэффициент полезного действия КПД
         /// </summary>
-        public double EfficiencyFactor { get; set; } = -1;
+        public double EfficiencyFactor { get; set; } = 0.8;
 
         /// <summary>
         /// Тип системы заземления TN-C-S
@@ -55,7 +55,7 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Напряжение В
         /// </summary>
-        public double Voltage { get; set; } = -1;
+        public double Voltage { get; set; } = 400;
 
         /// <summary>
         /// Количество фаз
@@ -63,14 +63,14 @@ namespace CoreV01.Feeder {
         public int PhaseNumber { get; set; } = 3;
 
         /// <summary>
-        /// Колисество электроприёмников
+        /// Количество электроприёмников
         /// </summary>
         public int NumberElectricalReceivers { get; set; } = 1;
 
         /// <summary>
         /// Количество часов работы в год
         /// </summary>
-        public int HoursWorkedPerYear { get; set; } = -1;
+        public int HoursWorkedPerYear { get; set; } = 1;
 
         /// <summary>
         /// Номер помещения (оборудования) по генплну в котором расположено оборудование
@@ -85,21 +85,21 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Квадрат номинальной мощности
         /// </summary>
-        public double RatedPowerSquared { get; set; } = -1;
+        public double RatedPowerSquared { get; set; } = 1;
 
         /// <summary>
         /// Реактивная мощность
         /// </summary>
-        public double ReactivePower { get; set; } = -1;
+        public double ReactivePower { get; set; } = 1;
 
         /// <summary>
         /// Номинальный ток
         /// </summary>
-        public double RatedCurrent { get; set; } = -1;
+        public double RatedCurrent { get; set; } = 1;
 
         /// <summary>
         /// Пусковой ток
         /// </summary>
-        public double StartingCurrent { get; set; } = -1;
+        public double StartingCurrent { get; set; } = 1;
     }
 }
