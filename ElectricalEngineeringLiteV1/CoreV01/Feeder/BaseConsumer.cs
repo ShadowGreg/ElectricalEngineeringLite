@@ -13,9 +13,11 @@ namespace CoreV01.Feeder {
         public string MechanismName { get; set; } = "";
 
         /// <summary>
-        /// Тип механизма в последствии для определения длительности пускового тока  и расчётных характеристик
+        ///Тип оборудования для расчёта токов в кабеле
+        /// TODO далее можно усложнить расчёт на базе этого элемента для автоподборки коэффициентов
         /// </summary>
-        public string LoadType { get; set; } = "";
+        public ConsumerType LoadType { get; set; } = ConsumerType.Technological;
+
 
         /// <summary>
         /// Коэффициент (кратность) пускового тока
@@ -101,5 +103,16 @@ namespace CoreV01.Feeder {
         /// Пусковой ток
         /// </summary>
         public double StartingCurrent { get; set; } = 1;
+    }
+
+    public enum ConsumerType {
+        Technological,
+        Sanitary,
+        Lighting,
+        Heating,
+        ElectricHeating,
+        Other,
+        Reserve,
+        ReactivePowerCompensation
     }
 }

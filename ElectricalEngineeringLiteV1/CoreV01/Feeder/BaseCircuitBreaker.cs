@@ -10,7 +10,7 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Габарит автомтаического выключателя
         /// </summary>
-        public string Dimensions { get; set; } = "16";
+        public string Dimensions { get; set; } = "160";
 
         /// <summary>
         /// Кривая срабатывания автоматического выключателя
@@ -25,10 +25,10 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Число полюсов автоматического выключателя
         /// </summary>
-        public int NumberPoles { get; set; } = 1;
+        public int NumberPoles { get; set; } = 3;
 
         /// <summary>
-        /// Коммутационная способность автоматического выключателя
+        /// Коммутационная способность автоматического выключателя кА
         /// </summary>
         public double SwitchingCapacity { get; set; } = 4.5;
     }

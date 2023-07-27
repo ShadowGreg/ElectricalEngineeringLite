@@ -6,7 +6,7 @@ namespace DataBase {
     public class DataBase: IReadWrite {
         private static List<BaseConsumer> _consumers;
 
-        private DataBase() {
+        public DataBase() {
             _consumers = new List<BaseConsumer>() {
                 new BaseConsumer() {
                     TechnologicalNumber = "MXZ-340-15A",

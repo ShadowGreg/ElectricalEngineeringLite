@@ -4,6 +4,11 @@ using CoreV01.Properties;
 namespace CoreV01.Feeder {
     public class BaseCable: DBDependence {
         /// <summary>
+        /// Материал кабеля медь или аллюминий
+        /// </summary>
+        public Material CableMaterial { get; set; }
+
+        /// <summary>
         /// Порядковый номер в шине - что бы при
         /// восстановлении данных не менялся порядок приёмнтков
         /// </summary>
@@ -51,8 +56,18 @@ namespace CoreV01.Feeder {
         public double CableCurrent { get; set; } = 0.01;
 
         /// <summary>
+        /// Максимальный допустимый ток в кабеле А при температуре ...
+        /// </summary>
+        public double MaxCableCurrent { get; set; } = 0.01;
+
+        /// <summary>
         /// Ток короткого замыкания кА
         /// </summary>
         public double ShortCircuitCurrent { get; set; } = 0.01;
+    }
+
+    public enum Material {
+        Copper,
+        Aluminum
     }
 }

@@ -24,9 +24,9 @@ namespace BillingFillingController.Calculators {
         public double GetRatedCurrent(BaseConsumer сonsumer) {
             switch (сonsumer.PhaseNumber) {
                 case 1:
-                    return сonsumer.RatedElectricPower / сonsumer.Voltage / сonsumer.PowerFactor;
+                    return сonsumer.RatedElectricPower * 1000 / сonsumer.Voltage / сonsumer.PowerFactor;
                 case 3:
-                    return сonsumer.RatedElectricPower / сonsumer.Voltage / сonsumer.PowerFactor / Math.Sqrt(3);
+                    return сonsumer.RatedElectricPower * 1000 / сonsumer.Voltage / сonsumer.PowerFactor / Math.Sqrt(3);
             }
 
             throw new Exception("GetRatedCurrent даёт ошибку");

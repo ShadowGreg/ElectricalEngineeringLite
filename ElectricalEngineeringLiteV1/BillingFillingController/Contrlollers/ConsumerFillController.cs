@@ -4,10 +4,10 @@ using CoreV01.Feeder;
 
 namespace BillingFillingController.Contrlollers {
     public class ConsumerFillController {
-        private ConsumerCalculator _calculator;
+        private readonly ConsumerCalculator _calculator;
 
-        public ConsumerFillController(ConsumerCalculator calculator) {
-            _calculator = calculator;
+        public ConsumerFillController() {
+            _calculator = new ConsumerCalculator();
         }
 
         public void FillConsumerFields(BaseConsumer сonsumer) {
@@ -20,8 +20,9 @@ namespace BillingFillingController.Contrlollers {
                 сonsumer.RatedCurrent = _calculator.GetRatedCurrent(сonsumer);
                 сonsumer.StartingCurrent = _calculator.StartingCurrent(сonsumer);
             }
-
-            throw new FormatException("Не рализована система заземления IT");
+            else {
+                throw new FormatException("Не рализована система заземления IT");
+            }
         }
 
         private int PhaseNumber(double сonsumerVoltage) {

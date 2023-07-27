@@ -39,7 +39,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Calculators\ConsumerCalculator.cs" />
+        <Compile Include="Contrlollers\Cable\CableFillController.cs" />
+        <Compile Include="Contrlollers\Cable\CableResistanceCharacteristics.cs" />
+        <Compile Include="Contrlollers\CircuitBreakerFillController.cs" />
         <Compile Include="Contrlollers\ConsumerFillController.cs" />
+        <Compile Include="Contrlollers\FeederFillController.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
