@@ -6,7 +6,7 @@ namespace CoreV01.Properties {
         /// <summary>
         /// Мощность оборудования  установленная на секцию шин кВт
         /// </summary>
-        public double installedCapacity { get; set; }
+        public double InstalledCapacity { get; set; }
 
         /// <summary>
         /// Расчётная мощность оборудования установленного на секцию шин кВт
