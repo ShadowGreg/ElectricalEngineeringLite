@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BillingFillingController.Contrlollers;
 using BillingFillingController.Contrlollers.Cable;
+using BillingFillingController.Contrlollers.Consumer;
 using CoreV01.Feeder;
 using NUnit.Framework;
 

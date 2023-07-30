@@ -46,8 +46,8 @@
         <Compile Include="Contrlollers\BusBars\BusbarFillController.cs" />
         <Compile Include="Contrlollers\Cable\CableFillController.cs" />
         <Compile Include="Contrlollers\Cable\CableResistanceCharacteristics.cs" />
-        <Compile Include="Contrlollers\ConsumerFillController.cs" />
-        <Compile Include="Contrlollers\FeederFillController.cs" />
+        <Compile Include="Contrlollers\Consumer\ConsumerFillController.cs" />
+        <Compile Include="Contrlollers\Feeder\FeederFillController.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

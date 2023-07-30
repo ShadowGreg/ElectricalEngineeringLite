@@ -2,7 +2,7 @@
 using BillingFillingController.Calculators;
 using CoreV01.Feeder;
 
-namespace BillingFillingController.Contrlollers {
+namespace BillingFillingController.Contrlollers.Consumer {
     public class ConsumerFillController {
         private readonly ConsumerCalculator _calculator;
 

@@ -1,8 +1,9 @@
 ﻿using BillingFillingController.Contrlollers.Breakers;
 using BillingFillingController.Contrlollers.Cable;
+using BillingFillingController.Contrlollers.Consumer;
 using CoreV01.Feeder;
 
-namespace BillingFillingController.Contrlollers {
+namespace BillingFillingController.Contrlollers.Feeder {
     public class FeederFillController {
         public BaseCable Cable { get; set; }
         public BaseCircuitBreaker CircuitBreaker { get; set; }
