@@ -7,12 +7,12 @@ using CoreV01.Properties;
 
 namespace BillingFillingController.Contrlollers.BusBars {
     public class BusbarFillController {
-        private List<BaseConsumer> _consumers;
-        private List<BaseFeeder> _feeders;
-        private BaseBusbar _busbar;
-        private double _voltage;
+        private static List<BaseConsumer> _consumers;
+        private static List<BaseFeeder> _feeders;
+        private static BaseBusbar _busbar;
+        private readonly double _voltage;
 
-        public RMTCalculation BusbarCalculations { get; set; }
+        public static RMTCalculation BusbarCalculations { get; set; }
 
         public BusbarFillController(double voltage) {
             _voltage = voltage;

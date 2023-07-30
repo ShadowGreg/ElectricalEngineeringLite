@@ -105,7 +105,7 @@ namespace BillingFillingController.Calculators {
 
             TangentOfBusPowerFactor = ReactiveRatedPowerOfTheBus / ActiveRatedPowerOfTheBus;
             BusPowerFactor = Math.Cos(Math.Atan(TangentOfBusPowerFactor));
-            DesignBusbarCurrent = TotalDesignPowerOfTheBus / Math.Sqrt(3) / voltage;
+            DesignBusbarCurrent = TotalDesignPowerOfTheBus / Math.Sqrt(3) / voltage * 1000;
             return consumers.Sum(consumer => consumer.NumberElectricalReceivers * consumer.RatedElectricPower);
         }
 
