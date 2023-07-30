@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BillingFillingController.Contrlollers;
 using BillingFillingController.Contrlollers.BusBars;
 using CoreV01.Feeder;
@@ -108,12 +109,16 @@ namespace BackendTests {
             BusbarFillController busbarFillController = new BusbarFillController(voltage);
 
             // Act
-            busbarFillController.AddConsumerOnBus(testConsumer);
+            for (int i = 0; i < 10; i++) {
+                busbarFillController.AddConsumerOnBus(testConsumer);
+            }
 
             var fillingBusBar = busbarFillController.GetBusbar();
 
             // Assert
+            throw new NotImplementedException("Пока не проверены расчёты");
             Assert.NotNull(fillingBusBar);
+            
         }
     }
 }
