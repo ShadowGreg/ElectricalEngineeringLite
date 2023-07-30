@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using BillingFillingController.Calculators;
+using BillingFillingController.Contrlollers.Breakers;
 using CoreV01.Feeder;
 using CoreV01.Properties;
 
@@ -8,17 +10,22 @@ namespace BillingFillingController.Contrlollers.BusBars {
         private List<BaseConsumer> _consumers;
         private List<BaseFeeder> _feeders;
         private BaseBusbar _busbar;
+        private double _voltage;
 
         public RMTCalculation BusbarCalculations { get; set; }
 
-        public BusbarFillController() {
+        public BusbarFillController(double voltage) {
+            _voltage = voltage;
             _consumers = new List<BaseConsumer>();
             _feeders = new List<BaseFeeder>();
             _busbar = new BaseBusbar();
         }
 
-        public void AddConsumerOnBus(BaseConsumer newConsumer) {
+
+        public void AddConsumerOnBus(BaseConsumer newConsumer, double length, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
+            int index = _consumers.Count - 1;
+            _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, index, maxVoltageDrop));
             FillBusbarParams();
         }
 
@@ -29,23 +36,17 @@ namespace BillingFillingController.Contrlollers.BusBars {
                 _busbar.EmergencyСurrentSectionalSwitch = 0;
             }
 
-            _busbar.InstalledCapacity = BusbarCalculations.GetInstallCapacity(_consumers);
-            _busbar.RatedCapacity = BusbarCalculations.GetRatedCapacity(_consumers);
-            _busbar.PowerFactor = BusbarCalculations.GetBusbarPowerFactor(_consumers);
-            _busbar.RatedCurrent = BusbarCalculations.GetBusbarRatedCurrent(_consumers);
+            _busbar.InstalledCapacity = BusbarCalculations.GetInstallCapacity(_consumers, _voltage);
+            _busbar.RatedCapacity = BusbarCalculations.ActiveRatedPowerOfTheBus;
+            _busbar.PowerFactor = BusbarCalculations.BusPowerFactor;
+            _busbar.RatedCurrent = BusbarCalculations.DesignBusbarCurrent;
             _busbar.InputSwitch = GetBusbarInputSwitch();
 
             BasicFilling();
-
-            _busbar.feeders = GenerateFeeders(_feeders);
-            throw new NotImplementedException();
-        }
-
-        private List<BaseFeeder> GenerateFeeders(List<BaseFeeder> feeders) {
-            throw new NotImplementedException();
         }
 
         private BaseCircuitBreaker GetBusbarInputSwitch() {
+            return new CircuitBreakerFillController().BreakerSelect(null, null);
             throw new NotImplementedException();
         }
 

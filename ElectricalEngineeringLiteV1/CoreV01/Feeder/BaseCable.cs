@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Reflection;
+using System.Text;
 using CoreV01.Properties;
 
 namespace CoreV01.Feeder {
-    public class BaseCable: DBDependence {
+    public partial class BaseCable: DBDependence {
         /// <summary>
         /// Материал кабеля медь или аллюминий
         /// </summary>
@@ -64,6 +66,44 @@ namespace CoreV01.Feeder {
         /// Ток короткого замыкания кА
         /// </summary>
         public double ShortCircuitCurrent { get; set; } = 0.01;
+
+        public override bool Equals(object obj) {
+            if (obj == null || GetType() != obj.GetType()) {
+                return false;
+            }
+
+            return Equals(obj as BaseCable);
+        }
+
+        private bool Equals(BaseCable other) {
+            if (other == null) {
+                return false;
+            }
+
+            return ToString() == other.ToString();
+        }
+
+        public override int GetHashCode() {
+            return ToString().GetHashCode();
+        }
+
+        public override string ToString() {
+            var tempString = new StringBuilder();
+            tempString.Append(" " + CableMaterial);
+            tempString.Append(" " + SequentialNumber);
+            tempString.Append(" " + CableName);
+            tempString.Append(" " + CableBrand);
+            tempString.Append(" " + CoresNumber);
+            tempString.Append(" " + CableCrossSection);
+            tempString.Append(" " + NumberInFeeder);
+            tempString.Append(" " + CableLength);
+            tempString.Append(" " + CableVoltageLoss);
+            tempString.Append(" " + CableCurrent);
+            tempString.Append(" " + MaxCableCurrent);
+            tempString.Append(" " + ShortCircuitCurrent);
+
+            return tempString.ToString();
+        }
     }
 
     public enum Material {

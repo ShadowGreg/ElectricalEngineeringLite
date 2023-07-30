@@ -23,7 +23,7 @@ namespace BillingFillingController.Contrlollers {
             _consumerFillController.FillConsumerFields(Consumer);
             Consumer.SequentialNumber = num;
             Consumer.OwnerId = outputFeeder.SelfId;
-            Cable = new CableFillController(Consumer, length).CableSelect(maxVoltageDrop);
+            Cable = new CableFillController(Consumer, length).GetCableValue(maxVoltageDrop);
             Cable.OwnerId = outputFeeder.SelfId;
             outputFeeder.Cable = Cable;
             CircuitBreaker = new CircuitBreakerFillController().BreakerSelect(Consumer, Cable);

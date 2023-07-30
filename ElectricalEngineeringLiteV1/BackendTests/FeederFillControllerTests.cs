@@ -29,5 +29,28 @@ namespace BackendTests {
             // Assert
             Assert.NotNull(feeder);
         }
+
+        [Test]
+        public void On_A_Single_Phase_Electric_Receiver_Test() {
+            // Arrange
+            BaseConsumer testConsumer = new BaseConsumer() {
+                TechnologicalNumber = "MXW-250-13C",
+                MechanismName = "насос технологический",
+                RatedElectricPower = 3.5,
+                PowerFactor = 0.85,
+                Voltage = 230,
+                HoursWorkedPerYear = 8700,
+                LocationEquipmentInstallation = "102",
+                StartingCurrentMultiplicity = 1
+            };
+            BaseCable expectedCable = new BaseCable() { };
+            FeederFillController controller = new FeederFillController(testConsumer);
+
+            // Act
+            var feeder = controller.GetFeeder(20, 1, 2.3);
+
+            // Assert
+            Assert.NotNull(feeder);
+        }
     }
 }

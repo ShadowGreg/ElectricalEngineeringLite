@@ -42,6 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="CableFillControllerTest.cs" />
         <Compile Include="ConsumerFillControllerTests.cs" />
         <Compile Include="FeederFillControllerTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

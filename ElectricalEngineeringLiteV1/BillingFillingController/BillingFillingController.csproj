@@ -39,11 +39,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Calculators\ConsumerCalculator.cs" />
+        <Compile Include="Calculators\DesignLoadFactorData.cs" />
+        <Compile Include="Calculators\RMTCalculation.cs" />
         <Compile Include="Contrlollers\Breakers\BreakerData.cs" />
         <Compile Include="Contrlollers\Breakers\CircuitBreakerFillController.cs" />
         <Compile Include="Contrlollers\BusBars\BusbarFillController.cs" />
-        <Compile Include="Contrlollers\BusBars\IBusBarCalculation.cs" />
-        <Compile Include="Contrlollers\BusBars\RMTCalculation.cs" />
         <Compile Include="Contrlollers\Cable\CableFillController.cs" />
         <Compile Include="Contrlollers\Cable\CableResistanceCharacteristics.cs" />
         <Compile Include="Contrlollers\ConsumerFillController.cs" />
