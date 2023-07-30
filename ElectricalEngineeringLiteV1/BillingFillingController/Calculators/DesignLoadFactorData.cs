@@ -438,6 +438,10 @@ namespace BillingFillingController.Calculators {
                     desiredForeignKey = foreignKeys[i];
                     break;
                 }
+
+                if (equivalentNumberOfElectricalReceivers != foreignKeys[i]) continue;
+                desiredForeignKey = foreignKeys[i];
+                break;
             }
 
             List<double> internalKeys = _data[desiredForeignKey].Keys.ToList();
@@ -445,12 +449,13 @@ namespace BillingFillingController.Calculators {
             for (int i = 0; i < internalKeys.Count; i++) {
                 if (busUtilizationFactor > internalKeys[i] &&
                     busUtilizationFactor < internalKeys[i + 1]) {
-                    desiredInternalKey = foreignKeys[i];
+                    desiredInternalKey = internalKeys[i];
                     break;
                 }
             }
 
-            return _data[desiredForeignKey][desiredInternalKey];
+            var temp = _data[desiredForeignKey][desiredInternalKey];
+            return temp;
         }
     }
 }

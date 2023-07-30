@@ -19,10 +19,11 @@ namespace BillingFillingController.Contrlollers.BusBars {
             _consumers = new List<BaseConsumer>();
             _feeders = new List<BaseFeeder>();
             _busbar = new BaseBusbar();
+            BusbarCalculations = new RMTCalculation();
         }
 
 
-        public void AddConsumerOnBus(BaseConsumer newConsumer, double length, double maxVoltageDrop = 2.5) {
+        public void AddConsumerOnBus(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
             int index = _consumers.Count - 1;
             _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, index, maxVoltageDrop));
@@ -46,12 +47,14 @@ namespace BillingFillingController.Contrlollers.BusBars {
         }
 
         private BaseCircuitBreaker GetBusbarInputSwitch() {
-            return new CircuitBreakerFillController().BreakerSelect(null, null);
-            throw new NotImplementedException();
+            return new CircuitBreakerFillController().GetInputSwitch(_busbar.RatedCurrent);
         }
 
         public void AddConsumersListOnBus(IEnumerable<BaseConsumer> consumers) {
             _consumers.AddRange(consumers);
+            foreach (var consumer in consumers) {
+                AddConsumerOnBus(consumer);
+            }
         }
 
         public BaseBusbar GetBusbar() => _busbar;
