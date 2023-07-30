@@ -107,6 +107,7 @@ namespace BackendTests {
             _consumerFillController.FillConsumerFields(testConsumer);
             const double voltage = 400;
             BusbarFillController busbarFillController = new BusbarFillController(voltage);
+            double expectedSwitchCurrent = 25;
 
             // Act
             for (int i = 0; i < 10; i++) {
@@ -114,11 +115,10 @@ namespace BackendTests {
             }
 
             var fillingBusBar = busbarFillController.GetBusbar();
+            double actualSwitchCurrent = fillingBusBar.InputSwitch.RatedCurrent;
 
             // Assert
-            throw new NotImplementedException("Пока не проверены расчёты");
-            Assert.NotNull(fillingBusBar);
-            
+            Assert.AreEqual(expectedSwitchCurrent, actualSwitchCurrent);
         }
     }
 }
