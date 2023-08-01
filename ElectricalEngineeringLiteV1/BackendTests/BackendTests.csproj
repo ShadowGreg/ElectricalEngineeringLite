@@ -45,6 +45,7 @@
         <Compile Include="BusbarFillControllerTests.cs" />
         <Compile Include="CableFillControllerTest.cs" />
         <Compile Include="ConsumerFillControllerTests.cs" />
+        <Compile Include="ElectricalPanelFillControllerTests.cs" />
         <Compile Include="FeederFillControllerTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

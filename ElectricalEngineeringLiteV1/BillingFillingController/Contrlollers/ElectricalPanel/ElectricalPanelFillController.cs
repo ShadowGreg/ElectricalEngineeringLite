@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BillingFillingController.Calculators;
 using BillingFillingController.Contrlollers.BusBars;
@@ -14,29 +15,49 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
         public ElectricalPanelFillController(double voltage = 400, string name = "Новый щитр ЩР1") {
             _electricalPanel = new BaseElectricalPanel {
                 TechnologicalNumber = name,
-                BusBars = new List<BaseBusbar>(),
+                BusBars = new List<BaseBusbar>()
             };
             _busbarFillController = new BusbarFillController(voltage);
-            _electricalPanel.BusBars.Add(new BaseBusbar());
+            _electricalPanel.BusBars.Add(new BaseBusbar() {
+                SequentialNumber = 1,
+                OwnerId = _electricalPanel.SelfId
+            });
         }
 
         private void AddConsumerOnPanel(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5,
             int busbarNum = 0) {
             _busbarFillController.AddConsumerOnBus(newConsumer, length, maxVoltageDrop);
             _electricalPanel.BusBars[busbarNum] = _busbarFillController.GetBusbar();
+            PanelCalculations = new RMTCalculation();
+            List<BaseConsumer> localConsumers = new List<BaseConsumer>();
+            foreach (var busbar in _electricalPanel.BusBars) {
+                localConsumers.AddRange(busbar.feeders.Select(feeder => feeder.Consumer));
+            }
+
+            PanelCalculations.GetInstallCapacity(localConsumers, _electricalPanel.Voltage);
         }
 
         public void AddOnPanel(List<BaseConsumer> consumers, int busbarNum = 0) {
+            switch (busbarNum) {
+                case 0:
+                    GetCalculationBusbar(consumers, busbarNum);
+                    break;
+            }
+
+            ///TODO потом пререписать систему  так что бы можно было спокойно переключаться - предположительно словарь
+            CalculatePanelFields();
+        }
+
+        private void GetCalculationBusbar(List<BaseConsumer> consumers,
+            int busbarNum) {
             if (consumers.Count() == 1) {
-                AddConsumerOnPanel(consumers[0], 0);
+                AddConsumerOnPanel(consumers[0], busbarNum: busbarNum);
             }
             else {
                 foreach (var consumer in consumers) {
                     AddConsumerOnPanel(consumer, busbarNum);
                 }
             }
-
-            CalculatePanelFields();
         }
 
         public BaseElectricalPanel GetPanel() {
@@ -57,7 +78,7 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
             _electricalPanel.DesignLoadFactor = GetDesignLoadFactor();
             _electricalPanel.ShieldActivePower = GetShieldActivePower();
             _electricalPanel.ReactivePowerOfThePanel = GetReactivePowerOfThePanel();
-            _electricalPanel.TotalPower = GetReactivePowerOfThePanel();
+            _electricalPanel.TotalPower = GetTotalPowerPanel();
             _electricalPanel.RatedCurrent = GetRatedCurrent();
         }
 
@@ -66,47 +87,56 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
         }
 
         private static double GetInstalledPowerOfSwitchboard() {
-            throw new System.NotImplementedException();
+            return _electricalPanel.BusBars.Sum(busBar =>
+                busBar.feeders.Sum(feeder =>
+                    feeder.Consumer.RatedElectricPower * feeder.Consumer.NumberElectricalReceivers));
         }
 
         private static double GetShieldUtilizationFactor() {
-            throw new System.NotImplementedException();
+            double coefficient = 0;
+            coefficient = _electricalPanel.BusBars.Sum(busBar => busBar.InstalledCapacity)
+                          / _electricalPanel.BusBars.Sum(busBar => busBar.RatedCapacity);
+            return coefficient;
         }
 
         private static double GetShieldPowerFactor() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.BusPowerFactor;
         }
 
         private static double GetAverageRatedActivePower() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.ActiveAverageDesignPower;
         }
 
         private static double GetAverageDesignReactivePower() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.ReactiveAverageRatedPower;
         }
 
         private static double GetSquareOfTheRatedPowerOfThePanel() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.SquareOfRatedPower;
         }
 
         private static double GetEquivalentNumberOfElectricalReceivers() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.EquivalentNumberOfElectricalReceivers;
         }
 
         private static double GetDesignLoadFactor() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.DesignLoadFactor;
         }
 
         private static double GetShieldActivePower() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.ActiveRatedPowerOfTheBus;
         }
 
         private static double GetReactivePowerOfThePanel() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.ReactiveRatedPowerOfTheBus;
+        }
+
+        private static double GetTotalPowerPanel() {
+            return PanelCalculations.TotalDesignPowerOfTheBus;
         }
 
         private static double GetRatedCurrent() {
-            throw new System.NotImplementedException();
+            return PanelCalculations.DesignBusbarCurrent;
         }
     }
 }

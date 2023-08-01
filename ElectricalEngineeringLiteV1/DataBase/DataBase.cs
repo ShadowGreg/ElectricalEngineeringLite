@@ -55,7 +55,5 @@ namespace DataBase {
             new DataBase();
             return _consumers;
         }
-
-        public static List<BaseElectricPanel> ElectricPanels { get; set; }
     }
 }
