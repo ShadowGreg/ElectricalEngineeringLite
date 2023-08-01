@@ -67,7 +67,10 @@ namespace BillingFillingController.Contrlollers.BusBars {
                 AddConsumerOnBus(consumer);
             }
         }
-
+        /// <summary>
+        /// Получить рассчитанную шину все данные уже прогружены
+        /// </summary>
+        /// <returns>объект класса BaseBusbar</returns>
         public BaseBusbar GetBusbar() => _busbar;
     }
 }
