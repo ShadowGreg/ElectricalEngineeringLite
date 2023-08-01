@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BillingFillingController.Calculators;
 using BillingFillingController.Contrlollers.Breakers;
 using BillingFillingController.Contrlollers.Feeder;
@@ -26,8 +25,17 @@ namespace BillingFillingController.Contrlollers.BusBars {
 
         public void AddConsumerOnBus(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
-            int index = _consumers.Count - 1;
-            _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, index, maxVoltageDrop));
+            if (_feeders.Count == 0) {
+                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, 1, maxVoltageDrop));
+            }
+            else {
+                int index = _feeders.Count + 1;
+                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, index, maxVoltageDrop));
+            }
+
+            _feeders[_feeders.Count - 1].OwnerId = _busbar.SelfId;
+            _feeders[_feeders.Count - 1].SequentialNumber = _feeders.Count;
+            _feeders[_feeders.Count - 1].CircuitBreaker.NameOnBus += _feeders.Count;
             FillBusbarParams();
         }
 
@@ -43,6 +51,8 @@ namespace BillingFillingController.Contrlollers.BusBars {
             _busbar.PowerFactor = BusbarCalculations.BusPowerFactor;
             _busbar.RatedCurrent = BusbarCalculations.DesignBusbarCurrent;
             _busbar.InputSwitch = GetBusbarInputSwitch();
+            _busbar.InputSwitch.NameOnBus = "QS";
+            _busbar.feeders = _feeders;
 
             BasicFilling();
         }

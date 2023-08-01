@@ -3,6 +3,11 @@
 namespace CoreV01.Feeder {
     public class BaseCircuitBreaker: DBDependence {
         /// <summary>
+        /// Наименование автомата на шине 
+        /// </summary>
+        public string NameOnBus { get; set; } = "QF";
+
+        /// <summary>
         /// Тип автоматического выключателя по каталогу производителя
         /// </summary>
         public string Type { get; set; } = "АВ";

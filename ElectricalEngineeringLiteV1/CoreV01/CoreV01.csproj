@@ -39,6 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaseBusbar.cs" />
+        <Compile Include="BaseElectricalPanel.cs" />
         <Compile Include="BaseElectricPanel.cs" />
         <Compile Include="DBDependence.cs" />
         <Compile Include="Feeder\BaseCable.cs" />

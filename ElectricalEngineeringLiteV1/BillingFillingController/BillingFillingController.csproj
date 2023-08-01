@@ -47,6 +47,7 @@
         <Compile Include="Contrlollers\Cable\CableFillController.cs" />
         <Compile Include="Contrlollers\Cable\CableResistanceCharacteristics.cs" />
         <Compile Include="Contrlollers\Consumer\ConsumerFillController.cs" />
+        <Compile Include="Contrlollers\ElectricalPanel\ElectricalPanelFillController.cs" />
         <Compile Include="Contrlollers\Feeder\FeederFillController.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
