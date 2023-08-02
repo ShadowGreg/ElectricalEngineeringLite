@@ -4,6 +4,10 @@ using CoreV01.Feeder;
 namespace CoreV01.Properties {
     public class BaseBusbar: DBDependence {
         /// <summary>
+        /// Наименование шины
+        /// </summary>
+        public string BusbarName { get; set; }
+        /// <summary>
         /// Мощность оборудования  установленная на секцию шин кВт
         /// </summary>
         public double InstalledCapacity { get; set; } = 0;

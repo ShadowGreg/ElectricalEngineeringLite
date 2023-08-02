@@ -20,14 +20,35 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
             _busbarFillController = new BusbarFillController(voltage);
             _electricalPanel.BusBars.Add(new BaseBusbar() {
                 SequentialNumber = 1,
-                OwnerId = _electricalPanel.SelfId
             });
         }
 
         private void AddConsumerOnPanel(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5,
             int busbarNum = 0) {
+            string ConvertToRoman(int number) {
+                if (number < 0 || number > 3) {
+                    throw new ArgumentOutOfRangeException("Number must be between 1 and 4");
+                }
+
+                switch (number) {
+                    case 0:
+                        return "I";
+                    case 1:
+                        return "II";
+                    case 2:
+                        return "III";
+                    case 3:
+                        return "IV";
+                    default:
+                        return "";
+                }
+            }
+
             _busbarFillController.AddConsumerOnBus(newConsumer, length, maxVoltageDrop);
             _electricalPanel.BusBars[busbarNum] = _busbarFillController.GetBusbar();
+
+            _electricalPanel.BusBars[busbarNum].BusbarName = ConvertToRoman(busbarNum) + " СШ";
+            _electricalPanel.BusBars[busbarNum].OwnerId = _electricalPanel.SelfId;
             PanelCalculations = new RMTCalculation();
             List<BaseConsumer> localConsumers = new List<BaseConsumer>();
             foreach (var busbar in _electricalPanel.BusBars) {
