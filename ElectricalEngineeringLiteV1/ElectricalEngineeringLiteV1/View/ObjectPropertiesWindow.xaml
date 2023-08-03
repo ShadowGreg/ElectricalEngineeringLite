@@ -10,7 +10,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
-        <DataGrid DataContext="{StaticResource ViewModel}" ItemsSource="{Binding SelectedObj.Prop}">
+        <DataGrid
+            AutoGenerateColumns="False"
+            DataContext="{DynamicResource ViewModel}"
+            ItemsSource="{Binding SelectedObject.Prop}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Key}" Header="Свойство" />
                 <DataGridTextColumn Binding="{Binding Value}" Header="Значение" />

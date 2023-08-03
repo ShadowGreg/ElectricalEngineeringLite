@@ -6,11 +6,11 @@ using CoreV01.Feeder;
 namespace ElectricalEngineeringLiteV1.ViewModel {
     public class ViewModel: ViewModelBase {
         private List<BaseConsumer> _consumers;
-        private SelectedObj _actualObj;
+        private static Selected _actual;
 
         public ViewModel() {
             _consumers = new DataBase.DataBase().GetConsumers();
-            _actualObj = new SelectedObj(_consumers[0]);
+            _actual = new Selected(_consumers[0]);
         }
 
         public List<BaseConsumer> Consumers
@@ -23,24 +23,25 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             }
         }
 
-        public SelectedObj SelectedObj
+        public object SelectedObject
         {
-            get => _actualObj;
+            get => _actual;
             set
             {
-                _actualObj = new SelectedObj(value);
-                OnPropertyChanged(nameof(SelectedObj));
+                _actual = new Selected(value);
+                OnPropertyChanged("SelectedObject");
             }
         }
     }
 
-    public class SelectedObj {
+    public class Selected: ViewModelBase {
         private object _obj;
         public Dictionary<string, object> Prop { get; }
 
-        public SelectedObj(object obj) {
+        public Selected(object obj) {
             _obj = obj;
             Prop = GetValues(obj);
+            OnPropertyChanged(nameof(Selected));
         }
 
         private static Dictionary<string, object> GetValues(object obj) {
