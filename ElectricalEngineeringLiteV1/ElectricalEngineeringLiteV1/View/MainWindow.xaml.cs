@@ -1,4 +1,4 @@
-﻿namespace ElectricalEngineeringLiteV1 {
+﻿namespace ElectricalEngineeringLiteV1.View {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
