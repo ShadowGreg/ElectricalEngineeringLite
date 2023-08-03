@@ -54,6 +54,7 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="ViewModel\ViewModel.cs" />
         <Compile Include="ViewModel\ViewModelBase.cs" />
         <Compile Include="View\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -94,6 +95,16 @@
       <Page Include="View\ObjectPropertiesWindow.xaml" />
       <Page Include="View\SchematicDiagramOfDistributionNetwork.xaml" />
       <Page Include="View\Toolbox.xaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\CoreV01\CoreV01.csproj">
+        <Project>{953b95ea-8cf2-4b97-8e76-f8c25b6f1c43}</Project>
+        <Name>CoreV01</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\DataBase\DataBase.csproj">
+        <Project>{ffd1cd26-4818-4c75-8869-18f6569a7960}</Project>
+        <Name>DataBase</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
