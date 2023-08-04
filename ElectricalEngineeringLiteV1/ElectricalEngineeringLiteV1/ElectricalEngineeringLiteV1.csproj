@@ -102,6 +102,10 @@
       <Page Include="View\Toolbox.xaml" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\BillingFillingController\BillingFillingController.csproj">
+        <Project>{492c3314-a1bd-4be9-9f60-2079728dd634}</Project>
+        <Name>BillingFillingController</Name>
+      </ProjectReference>
       <ProjectReference Include="..\CoreV01\CoreV01.csproj">
         <Project>{953b95ea-8cf2-4b97-8e76-f8c25b6f1c43}</Project>
         <Name>CoreV01</Name>

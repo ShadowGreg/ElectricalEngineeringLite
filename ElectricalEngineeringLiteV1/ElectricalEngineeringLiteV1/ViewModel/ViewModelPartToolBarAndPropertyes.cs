@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Reflection;
 using CoreV01.Feeder;
+using ElectricalEngineeringLiteV1.View;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
     public partial class ViewModel: ViewModelBase {
-        private List<BaseConsumer> _consumers;
+        private ObservableCollection<BaseConsumer> _consumers;
         private static Selected _actual;
 
         public ViewModel() {
-            _consumers = new DataBase.DataBase().GetConsumers();
+            _consumers = new ObservableCollection<BaseConsumer>(new DataBase.DataBase().GetConsumers());
             _actual = new Selected(_consumers[0]);
+            _addedConsumer = new BaseConsumer();
+            _electricReceiverFields = new Dictionary<string, object>();
         }
 
-        public List<BaseConsumer> Consumers
+        public void AddConsumer(BaseConsumer consumer) {
+            
+            _consumers.Add(consumer);
+            OnPropertyChanged(nameof(AddConsumer));
+        }
+
+        public ObservableCollection<BaseConsumer> Consumers
         {
             get => _consumers;
             set

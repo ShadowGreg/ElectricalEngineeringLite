@@ -16,7 +16,7 @@
             <DataGrid
                 AlternatingRowBackground="White"
                 AutoGenerateColumns="False"
-                ItemsSource="{Binding Consumers}"
+                ItemsSource="{Binding Consumers, UpdateSourceTrigger=PropertyChanged}"
                 Margin="2"
                 RowBackground="LightBlue"
                 SelectedItem="{Binding SelectedObject}">

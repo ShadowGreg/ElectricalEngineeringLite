@@ -3,104 +3,104 @@
 namespace CoreV01.Feeder {
     public class BaseConsumer: DBDependence {
         /// <summary>
-        /// Технологический номер оборудования
+        /// 1 Технологический номер оборудования
         /// </summary>
         public string TechnologicalNumber { get; set; } = "";
 
         /// <summary>
-        /// Наименование механизма
+        /// 2 Наименование механизма
         /// </summary>
         public string MechanismName { get; set; } = "";
 
         /// <summary>
-        ///Тип оборудования для расчёта токов в кабеле
+        ///3 Тип оборудования для расчёта токов в кабеле
         /// TODO далее можно усложнить расчёт на базе этого элемента для автоподборки коэффициентов
         /// </summary>
         public ConsumerType LoadType { get; set; } = ConsumerType.Technological;
 
 
         /// <summary>
-        /// Коэффициент (кратность) пускового тока
+        /// 4 Коэффициент (кратность) пускового тока
         /// </summary>
         public double StartingCurrentMultiplicity { get; set; } = 1;
 
         /// <summary>
-        /// Номинальная электрическая мощность кВт
+        /// 5 Номинальная электрическая мощность кВт
         /// </summary>
         public double RatedElectricPower { get; set; } = 0.1;
 
         /// <summary>
-        /// Коэффициент использования
+        /// 6 Коэффициент использования
         /// </summary>
         public double UsageFactor { get; set; } = 0.1;
 
         /// <summary>
-        /// Коэффициент мощности косинус фи
+        /// 7 Коэффициент мощности косинус фи
         /// </summary>
         public double PowerFactor { get; set; } = 0.01;
 
         /// <summary>
-        /// Коэффициент мощности тангенс фи
+        /// 8 Коэффициент мощности тангенс фи
         /// </summary>
         public double TanPowerFactor { get; set; } = 0.01;
 
         /// <summary>
-        /// Коэффициент полезного действия КПД
+        /// 9 Коэффициент полезного действия КПД
         /// </summary>
         public double EfficiencyFactor { get; set; } = 0.8;
 
         /// <summary>
-        /// Тип системы заземления TN-C-S
+        /// 10 Тип системы заземления TN-C-S
         /// </summary>
         public string TypeGroundingSystem { get; set; } = "TN-C-S";
 
         /// <summary>
-        /// Напряжение В
+        /// 11 Напряжение В
         /// </summary>
         public double Voltage { get; set; } = 400;
 
         /// <summary>
-        /// Количество фаз
+        /// 12 Количество фаз
         /// </summary>
         public int PhaseNumber { get; set; } = 3;
 
         /// <summary>
-        /// Количество электроприёмников
+        /// 13 Количество электроприёмников
         /// </summary>
         public int NumberElectricalReceivers { get; set; } = 1;
 
         /// <summary>
-        /// Количество часов работы в год
+        /// 14 Количество часов работы в год
         /// </summary>
         public int HoursWorkedPerYear { get; set; } = 1;
 
         /// <summary>
-        /// Номер помещения (оборудования) по генплну в котором расположено оборудование
+        /// 15 Номер помещения (оборудования) по генплну в котором расположено оборудование
         /// </summary>
         public string LocationEquipmentInstallation { get; set; } = "";
 
         /// <summary>
-        /// Классификация помещняи по взрыво-,пожароопасности зон
+        /// 16 Классификация помещняи по взрыво-,пожароопасности зон
         /// </summary>
         public string ClassificationEquipmentInstallation { get; set; } = "";
 
         /// <summary>
-        /// Квадрат номинальной мощности
+        /// 17 Квадрат номинальной мощности
         /// </summary>
         public double RatedPowerSquared { get; set; } = 1;
 
         /// <summary>
-        /// Реактивная мощность
+        /// 18 Реактивная мощность
         /// </summary>
         public double ReactivePower { get; set; } = 1;
 
         /// <summary>
-        /// Номинальный ток
+        /// 19 Номинальный ток
         /// </summary>
         public double RatedCurrent { get; set; } = 1;
 
         /// <summary>
-        /// Пусковой ток
+        /// 20 Пусковой ток
         /// </summary>
         public double StartingCurrent { get; set; } = 1;
     }
