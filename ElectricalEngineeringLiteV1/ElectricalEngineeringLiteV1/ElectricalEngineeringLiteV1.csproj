@@ -54,8 +54,12 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="ViewModel\ViewModel.cs" />
+        <Compile Include="ViewModel\ViewModelPartConsumerUI.cs" />
+        <Compile Include="ViewModel\ViewModelPartToolBarAndPropertyes.cs" />
         <Compile Include="ViewModel\ViewModelBase.cs" />
+        <Compile Include="View\AddConsumer.xaml.cs">
+          <DependentUpon>AddConsumer.xaml</DependentUpon>
+        </Compile>
         <Compile Include="View\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
           <SubType>Code</SubType>
@@ -88,6 +92,7 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <Page Include="View\AddConsumer.xaml" />
       <Page Include="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>

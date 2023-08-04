@@ -4,7 +4,7 @@ using System.Reflection;
 using CoreV01.Feeder;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
-    public class ViewModel: ViewModelBase {
+    public partial class ViewModel: ViewModelBase {
         private List<BaseConsumer> _consumers;
         private static Selected _actual;
 
@@ -49,7 +49,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             Type type = obj.GetType();
             PropertyInfo[] fields = type.GetProperties();
             foreach (PropertyInfo field in fields) {
-                if (field.Name == "FooFields") break;
+                if (field.Name == "SelfId" || field.Name == "OwnerId") break;
 
                 values[field.Name] = field.GetValue(obj);
             }

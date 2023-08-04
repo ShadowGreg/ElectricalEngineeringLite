@@ -1,7 +1,5 @@
 ﻿<Page
-    Height="450"
     Title="ObjectPropertiesWindow"
-    Width="800"
     mc:Ignorable="d"
     x:Class="ElectricalEngineeringLiteV1.View.ObjectPropertiesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,7 +11,8 @@
         <DataGrid
             AutoGenerateColumns="False"
             DataContext="{DynamicResource ViewModel}"
-            ItemsSource="{Binding SelectedObject.Prop}">
+            ItemsSource="{Binding SelectedObject.Prop}"
+            VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Key}" Header="Свойство" />
                 <DataGridTextColumn Binding="{Binding Value}" Header="Значение" />

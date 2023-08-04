@@ -9,7 +9,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <StackPanel DataContext="{DynamicResource ViewModel}">
-            <Button Content="Добавить" />
+            <Button
+                Click="Add_Consumer"
+                Content="Добавить электроприёмника"
+                Margin="5" />
             <DataGrid
                 AlternatingRowBackground="White"
                 AutoGenerateColumns="False"
