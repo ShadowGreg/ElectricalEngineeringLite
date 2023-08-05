@@ -32,12 +32,12 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// 6 Коэффициент использования
         /// </summary>
-        public double UsageFactor { get; set; } = 0.1;
+        public double UsageFactor { get; set; } = 0.85;
 
         /// <summary>
         /// 7 Коэффициент мощности косинус фи
         /// </summary>
-        public double PowerFactor { get; set; } = 0.01;
+        public double PowerFactor { get; set; } = 0.85;
 
         /// <summary>
         /// 8 Коэффициент мощности тангенс фи
@@ -103,6 +103,8 @@ namespace CoreV01.Feeder {
         /// 20 Пусковой ток
         /// </summary>
         public double StartingCurrent { get; set; } = 1;
+
+        ///TODO дописать методы сравнения - для реализации поиска и удаления потребителя из массива потребителей
     }
 
     public enum ConsumerType {

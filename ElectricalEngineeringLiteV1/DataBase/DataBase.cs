@@ -12,7 +12,7 @@ namespace DataBase {
                 new BaseConsumer() {
                     TechnologicalNumber = "MXZ-340-15A",
                     MechanismName = "насос технологический",
-                    RatedElectricPower = 18.5,
+                    RatedElectricPower = 10,
                     PowerFactor = 0.85,
                     Voltage = 400,
                     HoursWorkedPerYear = 8700,
@@ -22,7 +22,7 @@ namespace DataBase {
                 new BaseConsumer() {
                     TechnologicalNumber = "MXZ-340-15B",
                     MechanismName = "насос технологический",
-                    RatedElectricPower = 18.5,
+                    RatedElectricPower = 10,
                     PowerFactor = 0.85,
                     Voltage = 400,
                     HoursWorkedPerYear = 8700,
@@ -32,7 +32,7 @@ namespace DataBase {
                 new BaseConsumer() {
                     TechnologicalNumber = "MXZ-340-15C",
                     MechanismName = "насос технологический",
-                    RatedElectricPower = 18.5,
+                    RatedElectricPower = 10,
                     PowerFactor = 0.85,
                     Voltage = 400,
                     HoursWorkedPerYear = 8700,
@@ -42,7 +42,7 @@ namespace DataBase {
                 new BaseConsumer() {
                     TechnologicalNumber = "MXW-250-13C",
                     MechanismName = "насос технологический",
-                    RatedElectricPower = 18.5,
+                    RatedElectricPower = 10,
                     PowerFactor = 0.85,
                     Voltage = 400,
                     HoursWorkedPerYear = 8700,

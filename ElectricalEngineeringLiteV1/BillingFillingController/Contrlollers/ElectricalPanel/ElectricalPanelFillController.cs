@@ -10,7 +10,6 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
     public class ElectricalPanelFillController {
         private static BaseElectricalPanel _electricalPanel;
         private static BusbarFillController _busbarFillController;
-        public static RMTCalculation PanelCalculations { get; set; }
 
         public ElectricalPanelFillController(double voltage = 400, string name = "Новый щитр ЩР1") {
             _electricalPanel = new BaseElectricalPanel {
@@ -52,21 +51,10 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
             PanelCalculations = new RMTCalculation();
             List<BaseConsumer> localConsumers = new List<BaseConsumer>();
             foreach (var busbar in _electricalPanel.BusBars) {
-                localConsumers.AddRange(busbar.feeders.Select(feeder => feeder.Consumer));
+                localConsumers.AddRange(busbar.Feeders.Select(feeder => feeder.Consumer));
             }
 
             PanelCalculations.GetInstallCapacity(localConsumers, _electricalPanel.Voltage);
-        }
-
-        public void AddOnPanel(List<BaseConsumer> consumers, int busbarNum = 0) {
-            switch (busbarNum) {
-                case 0:
-                    GetCalculationBusbar(consumers, busbarNum);
-                    break;
-            }
-
-            ///TODO потом пререписать систему  так что бы можно было спокойно переключаться - предположительно словарь
-            CalculatePanelFields();
         }
 
         private void GetCalculationBusbar(List<BaseConsumer> consumers,
@@ -79,11 +67,6 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
                     AddConsumerOnPanel(consumer, busbarNum);
                 }
             }
-        }
-
-        public BaseElectricalPanel GetPanel() {
-            CalculatePanelFields();
-            return _electricalPanel;
         }
 
         private static void CalculatePanelFields() {
@@ -104,12 +87,12 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
         }
 
         private static double GetNumberOfReceivers() {
-            return _electricalPanel.BusBars.Sum(busbar => busbar.feeders.Count());
+            return _electricalPanel.BusBars.Sum(busbar => busbar.Feeders.Count());
         }
 
         private static double GetInstalledPowerOfSwitchboard() {
             return _electricalPanel.BusBars.Sum(busBar =>
-                busBar.feeders.Sum(feeder =>
+                busBar.Feeders.Sum(feeder =>
                     feeder.Consumer.RatedElectricPower * feeder.Consumer.NumberElectricalReceivers));
         }
 
@@ -159,5 +142,26 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
         private static double GetRatedCurrent() {
             return PanelCalculations.DesignBusbarCurrent;
         }
+
+        public static RMTCalculation PanelCalculations { get; set; }
+
+
+        public void AddOnPanel(List<BaseConsumer> consumers, int busbarNum = 0) {
+            switch (busbarNum) {
+                case 0:
+                    GetCalculationBusbar(consumers, busbarNum);
+                    break;
+            }
+
+            ///TODO потом пререписать систему  так что бы можно было спокойно переключаться - предположительно словарь
+            CalculatePanelFields();
+        }
+
+        public BaseElectricalPanel GetPanel() {
+            CalculatePanelFields();
+            return _electricalPanel;
+        }
+
+        public BusbarFillController GetBusbarFillController() => _busbarFillController;
     }
 }

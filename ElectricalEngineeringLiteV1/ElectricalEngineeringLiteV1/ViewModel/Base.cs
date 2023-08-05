@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
     public class ViewModelBase: INotifyPropertyChanged {

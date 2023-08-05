@@ -27,5 +27,27 @@ namespace BackendTests {
             // Assert
             Assert.NotNull(actualPanel);
         }
+
+        [Test]
+        public void Controller_Test_For_A_Specific_Value() {
+            // Arrange
+            _electricalPanelFillController.AddOnPanel(new List<BaseConsumer> {
+                new BaseConsumer() {
+                    RatedElectricPower = 1,
+                },
+                new BaseConsumer() {
+                    RatedElectricPower = 2,
+                },
+                new BaseConsumer() {
+                    RatedElectricPower = 3,
+                },
+            });
+
+            // Act
+            var actualPanel = _electricalPanelFillController.GetPanel();
+
+            // Assert
+            Assert.NotNull(actualPanel);
+        }
     }
 }

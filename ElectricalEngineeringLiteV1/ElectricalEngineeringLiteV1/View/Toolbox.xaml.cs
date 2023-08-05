@@ -13,5 +13,9 @@ namespace ElectricalEngineeringLiteV1.View {
             Window addConsumer = new AddConsumer();
             addConsumer.Show();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e) {
+            throw new System.NotImplementedException();
+        }
     }
 }

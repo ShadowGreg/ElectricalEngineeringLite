@@ -11,7 +11,11 @@
         <StackPanel DataContext="{DynamicResource ViewModel}">
             <Button
                 Click="Add_Consumer"
-                Content="Добавить электроприёмника"
+                Content="Добавить электроприёмник"
+                Margin="5" />
+            <Button
+                Click="Add_Consumer"
+                Content="Провести расчёт системы"
                 Margin="5" />
             <DataGrid
                 AlternatingRowBackground="White"
@@ -20,6 +24,11 @@
                 Margin="2"
                 RowBackground="LightBlue"
                 SelectedItem="{Binding SelectedObject}">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Click="MenuItem_Click" Header="Снять потребителя с шины" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding .TechnologicalNumber}" Header="Тех. номер" />
                     <DataGridTextColumn Binding="{Binding .RatedElectricPower}" Header="Мощность, кВт" />

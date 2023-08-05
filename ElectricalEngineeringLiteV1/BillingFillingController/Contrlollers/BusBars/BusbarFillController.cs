@@ -12,7 +12,7 @@ namespace BillingFillingController.Contrlollers.BusBars {
         private static BaseBusbar _busbar;
         private readonly double _voltage;
 
-        public static RMTCalculation BusbarCalculations { get; set; }
+        public RMTCalculation BusbarCalculations { get; set; }
 
         public BusbarFillController(double voltage) {
             _voltage = voltage;
@@ -52,7 +52,7 @@ namespace BillingFillingController.Contrlollers.BusBars {
             _busbar.RatedCurrent = BusbarCalculations.DesignBusbarCurrent;
             _busbar.InputSwitch = GetBusbarInputSwitch();
             _busbar.InputSwitch.NameOnBus = "QS";
-            _busbar.feeders = _feeders;
+            _busbar.Feeders = _feeders;
 
             BasicFilling();
         }

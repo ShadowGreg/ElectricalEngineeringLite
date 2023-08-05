@@ -10,7 +10,7 @@ namespace BillingFillingController.Calculators {
         /// <summary>
         /// Физическое число электроприёмников
         /// </summary>
-        public int NumberOfReceivers { get; private set; } = 0;
+        public int NumberOfReceivers { get; set; } = 0;
 
         /// <summary>
         /// номинальная мощность
@@ -84,12 +84,17 @@ namespace BillingFillingController.Calculators {
 
         public double GetInstallCapacity(List<BaseConsumer> consumers, double voltage) {
             _consumers = consumers;
-            consumers.Sum(consumer => NumberOfReceivers += consumer.NumberElectricalReceivers);
-            consumers.Sum(consumer => RatedPower += consumer.RatedElectricPower);
-            consumers.Sum(consumer => RatedPowerOfIdenticalElectricalReceivers +=
-                consumer.NumberElectricalReceivers * consumer.RatedElectricPower);
-            consumers.Sum(consumer => RatedPowerOfIdenticalElectricalReceivers +=
-                consumer.NumberElectricalReceivers * consumer.RatedElectricPower);
+            NumberOfReceivers = consumers.Count;
+            RatedPower = 0;
+            foreach (var VARIABLE in consumers) {
+                RatedPower += VARIABLE.RatedElectricPower;
+            }
+
+            RatedPowerOfIdenticalElectricalReceivers = 0;
+            foreach (var VARIABLE in consumers) {
+                RatedPowerOfIdenticalElectricalReceivers += VARIABLE.RatedElectricPower;
+            }
+
             BusUtilizationFactor = consumers.Sum(consumer => consumer.UsageFactor * consumer.RatedElectricPower) /
                                    consumers.Sum(consumer => consumer.RatedElectricPower);
             ActiveAverageDesignPower = consumers.Sum(consumer => consumer.UsageFactor * consumer.RatedElectricPower);

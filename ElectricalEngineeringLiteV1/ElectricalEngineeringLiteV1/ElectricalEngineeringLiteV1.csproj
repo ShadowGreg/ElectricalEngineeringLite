@@ -54,11 +54,19 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="ViewModel\ViewModelPartConsumerUI.cs" />
-        <Compile Include="ViewModel\ViewModelPartToolBarAndPropertyes.cs" />
-        <Compile Include="ViewModel\ViewModelBase.cs" />
+        <Compile Include="ViewModel\ConsumerUI.cs" />
+        <Compile Include="ViewModel\PartCalculationTable.cs" />
+        <Compile Include="ViewModel\PartToolBarAndPropertyes.cs" />
+        <Compile Include="ViewModel\Base.cs" />
+        <Compile Include="ViewModel\Util\Row.cs" />
         <Compile Include="View\AddConsumer.xaml.cs">
           <DependentUpon>AddConsumer.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml.cs">
+          <DependentUpon>CalculationTableOfDistributionNetwork.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="View\CenterFrame\DistributionNetworkTable.xaml.cs">
+          <DependentUpon>DistributionNetworkTable.xaml</DependentUpon>
         </Compile>
         <Compile Include="View\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -66,9 +74,6 @@
         </Compile>
         <Compile Include="View\ObjectPropertiesWindow.xaml.cs">
           <DependentUpon>ObjectPropertiesWindow.xaml</DependentUpon>
-        </Compile>
-        <Compile Include="View\SchematicDiagramOfDistributionNetwork.xaml.cs">
-          <DependentUpon>SchematicDiagramOfDistributionNetwork.xaml</DependentUpon>
         </Compile>
         <Compile Include="View\Toolbox.xaml.cs">
           <DependentUpon>Toolbox.xaml</DependentUpon>
@@ -93,12 +98,13 @@
     </ItemGroup>
     <ItemGroup>
       <Page Include="View\AddConsumer.xaml" />
+      <Page Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml" />
+      <Page Include="View\CenterFrame\DistributionNetworkTable.xaml" />
       <Page Include="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>
       </Page>
       <Page Include="View\ObjectPropertiesWindow.xaml" />
-      <Page Include="View\SchematicDiagramOfDistributionNetwork.xaml" />
       <Page Include="View\Toolbox.xaml" />
     </ItemGroup>
     <ItemGroup>

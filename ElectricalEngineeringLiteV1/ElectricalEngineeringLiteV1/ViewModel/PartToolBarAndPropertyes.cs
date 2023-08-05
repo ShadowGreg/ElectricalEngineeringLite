@@ -2,23 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
+using BillingFillingController.Contrlollers.ElectricalPanel;
 using CoreV01.Feeder;
-using ElectricalEngineeringLiteV1.View;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
-    public partial class ViewModel: ViewModelBase {
+    public partial class ViewModel {
         private ObservableCollection<BaseConsumer> _consumers;
         private static Selected _actual;
 
-        public ViewModel() {
-            _consumers = new ObservableCollection<BaseConsumer>(new DataBase.DataBase().GetConsumers());
-            _actual = new Selected(_consumers[0]);
-            _addedConsumer = new BaseConsumer();
-            _electricReceiverFields = new Dictionary<string, object>();
-        }
 
         public void AddConsumer(BaseConsumer consumer) {
-            
             _consumers.Add(consumer);
             OnPropertyChanged(nameof(AddConsumer));
         }

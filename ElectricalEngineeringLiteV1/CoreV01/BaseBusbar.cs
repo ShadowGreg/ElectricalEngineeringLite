@@ -55,6 +55,6 @@ namespace CoreV01.Properties {
         /// <summary>
         /// Фидеры на секции
         /// </summary>
-        public List<BaseFeeder> feeders { get; set; }
+        public List<BaseFeeder> Feeders { get; set; }
     }
 }

@@ -1,7 +1,8 @@
 ﻿<Window
-    Height="350"
+    Height="600"
     Title="MainWindow"
-    Width="850"
+    Width="900"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d"
     x:Class="ElectricalEngineeringLiteV1.View.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition />
-            <RowDefinition Height="50" />
+            <!-- <RowDefinition Height="80" /> -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MaxWidth="250" MinWidth="100" />
@@ -34,7 +35,17 @@
             BorderThickness="1"
             Grid.Column="1"
             Grid.Row="1">
-            <Frame Source="SchematicDiagramOfDistributionNetwork.xaml" />
+            <TabControl>
+                <TabItem Header="Таблица принципиальной схемы">
+                    <Frame Source="/View/CenterFrame/DistributionNetworkTable.xaml" />
+                </TabItem>
+                <TabItem Header="Расчётная таблица">
+                    <Frame Source="/View/CenterFrame/CalculationTableOfDistributionNetwork.xaml" />
+                </TabItem>
+
+
+            </TabControl>
+
         </Border>
         <Border
             Background="LightBlue"
@@ -73,20 +84,22 @@
                 </MenuItem>
             </Menu>
         </Border>
-        <Border
-            BorderThickness="4"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Grid.Row="2"
-            VerticalAlignment="Center">
-            <TextBox
-                Background="Black"
-                Foreground="BlanchedAlmond"
-                Height="40"
-                SelectionBrush="Aqua"
-                Text="{Binding Text}"
-                TextWrapping="Wrap"
-                VerticalScrollBarVisibility="Auto" />
-        </Border>
+        <!--  <Border  -->
+        <!--  BorderThickness="4"  -->
+        <!--  Grid.Column="0"  -->
+        <!--  Grid.ColumnSpan="3"  -->
+        <!--  Grid.Row="2"  -->
+        <!--  VerticalAlignment="Center">  -->
+        <!--    -->
+        <!--  <TextBox  -->
+        <!--  Background="Black"  -->
+        <!--  DataContext="{DynamicResource ViewModel}"  -->
+        <!--  Foreground="BlanchedAlmond"  -->
+        <!--  Height="40"  -->
+        <!--  SelectionBrush="Aqua"  -->
+        <!--  Text="{Binding Text, Mode=TwoWay}"  -->
+        <!--  TextWrapping="Wrap"  -->
+        <!--  VerticalScrollBarVisibility="Auto" />  -->
+        <!-- </Border> -->
     </Grid>
 </Window>
