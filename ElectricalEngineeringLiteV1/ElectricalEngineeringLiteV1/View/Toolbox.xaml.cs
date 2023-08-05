@@ -5,8 +5,11 @@ using ElectricalEngineeringLiteV1.ViewModel;
 
 namespace ElectricalEngineeringLiteV1.View {
     public partial class Toolbox: Page {
+        private readonly ViewModel.ViewModel _viewModel;
+
         public Toolbox() {
             InitializeComponent();
+            _viewModel = (ViewModel.ViewModel)Application.Current.Resources["ViewModel"];
         }
 
         private void Add_Consumer(object sender, RoutedEventArgs e) {
@@ -16,6 +19,10 @@ namespace ElectricalEngineeringLiteV1.View {
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
             throw new System.NotImplementedException();
+        }
+
+        private void Calculate_Consumer(object sender, RoutedEventArgs e) {
+            _viewModel.RowsAssembly();
         }
     }
 }

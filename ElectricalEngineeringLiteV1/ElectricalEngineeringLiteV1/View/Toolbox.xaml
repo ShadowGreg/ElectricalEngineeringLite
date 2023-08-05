@@ -14,7 +14,7 @@
                 Content="Добавить электроприёмник"
                 Margin="5" />
             <Button
-                Click="Add_Consumer"
+                Click="Calculate_Consumer"
                 Content="Провести расчёт системы"
                 Margin="5" />
             <DataGrid

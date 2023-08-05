@@ -22,9 +22,6 @@ namespace ElectricalEngineeringLiteV1.View {
         }
 
         private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {
-            var temp1 = sender;
-            var temp2 = e;
-
             TextBox textBox = (TextBox)sender;
             _viewModel.AddedConsumer.TechnologicalNumber = textBox.Text;
         }

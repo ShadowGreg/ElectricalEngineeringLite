@@ -9,7 +9,7 @@ using ElectricalEngineeringLiteV1.ViewModel.Util;
 namespace ElectricalEngineeringLiteV1.ViewModel {
     public partial class ViewModel: ViewModelBase {
         private BaseElectricalPanel _electricalPanel;
-        private readonly ElectricalPanelFillController _electricalPanelFillController;
+        private ElectricalPanelFillController _electricalPanelFillController;
         private ObservableCollection<Row> _rows;
 
         public ViewModel() {
@@ -17,11 +17,15 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             _actual = new Selected(_consumers[0]);
             _addedConsumer = new BaseConsumer();
             _electricReceiverFields = new Dictionary<string, object>();
-            _electricalPanelFillController = new ElectricalPanelFillController();
-            _electricalPanelFillController.AddOnPanel(_consumers.ToList());
+            GetNewPanel();
             _electricalPanel = _electricalPanelFillController.GetPanel();
             _rows = new ObservableCollection<Row>();
             RowsAssembly();
+        }
+
+        private void GetNewPanel() {
+            _electricalPanelFillController = new ElectricalPanelFillController();
+            _electricalPanelFillController.AddOnPanel(_consumers.ToList());
         }
 
         public ObservableCollection<Row> Row
@@ -30,12 +34,13 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             set
             {
                 RowsAssembly();
-                OnPropertyChanged(nameof(_rows));
+                
             }
         }
 
-        private void RowsAssembly() {
+        public void RowsAssembly() {
             ObservableCollection<Row> tempRows = new ObservableCollection<Row>();
+            GetNewPanel();
             _electricalPanel = _electricalPanelFillController.GetPanel();
             tempRows.Add(new Row() {
                 Name = _electricalPanel.TechnologicalNumber,
@@ -102,6 +107,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
                 DesignBusbarCurrent = _busbarFillController.BusbarCalculations.DesignBusbarCurrent,
             });
             _rows = tempRows;
+            OnPropertyChanged(nameof(_rows));
         }
     }
 }
