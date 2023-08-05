@@ -1,8 +1,9 @@
 ﻿
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\App.xaml;;
-FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\AddConsumer.xaml;;
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\CenterFrame\CalculationTableOfDistributionNetwork.xaml;;
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\CenterFrame\DistributionNetworkTable.xaml;;
+FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\Consumer\AddConsumer.xaml;;
+FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\Consumer\EditConsumer.xaml;;
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\MainWindow.xaml;;
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\ObjectPropertiesWindow.xaml;;
 FC:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\View\Toolbox.xaml;;

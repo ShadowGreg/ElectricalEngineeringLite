@@ -1,0 +1,153 @@
+﻿<Window
+    Height="450"
+    Title="EditConsumer"
+    Width="800"
+    mc:Ignorable="d"
+    x:Class="ElectricalEngineeringLiteV1.View.Consumer.EditConsumer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:feeder="clr-namespace:CoreV01.Feeder;assembly=CoreV01"
+    xmlns:local="clr-namespace:ElectricalEngineeringLiteV1.View.Consumer"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:ElectricalEngineeringLiteV1.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <ScrollViewer>
+            <Grid DataContext="{DynamicResource ViewModel}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  Technological Number  -->
+                <Label Content="Технологический номер:" Grid.Row="0" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).TechnologicalNumber, Mode=TwoWay}" />
+                <!--  Mechanism Name  -->
+                <Label Content="Наименование электроприёмника" Grid.Row="1" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).MechanismName}" />
+                <!--  Load Type  -->
+                <Label Content="Тип технологической нагрузки:" Grid.Row="2" />
+                <ComboBox
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    SelectedItem="{Binding LoadType}">
+                    <ComboBoxItem Content="Technological" />
+                    <ComboBoxItem Content="Sanitary" />
+                    <ComboBoxItem Content="Lighting" />
+                    <ComboBoxItem Content="Heating" />
+                    <ComboBoxItem Content="Electric Heating" />
+                    <ComboBoxItem Content="Other" />
+                    <ComboBoxItem Content="Reserve" />
+                    <ComboBoxItem Content="Reactive Power Compensation" />
+                </ComboBox>
+                <!--  Starting Current Multiplicity  -->
+                <Label Content="Коэффициент (кратность) пускового тока:" Grid.Row="3" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).StartingCurrentMultiplicity}" />
+                <!--  Rated Electric Power  -->
+                <Label Content="Номинальная электрическая мощность, кВт:" Grid.Row="4" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).RatedElectricPower}" />
+                <!--  Usage Factor  -->
+                <Label Content="Коэффициент использования:" Grid.Row="5" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).UsageFactor}" />
+                <!--  Power Factor  -->
+                <Label Content="Коэффициент мощности косинус фи:" Grid.Row="6" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).PowerFactor}" />
+                <!--  Efficiency Factor  -->
+                <Label Content="Коэффициент полезного действия КПД:" Grid.Row="8" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="8"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).EfficiencyFactor}" />
+                <!--  Type Grounding System  -->
+                <Label Content="Тип системы заземления TN-C-S:" Grid.Row="9" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="9"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).TypeGroundingSystem}" />
+                <!--  Voltage  -->
+                <Label Content="Напряжение, В:" Grid.Row="10" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="10"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).Voltage}" />
+                <!--  Phase Number  -->
+                <Label Content="Количество фаз:" Grid.Row="11" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="11"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).PhaseNumber}" />
+                <!--  Number Electrical Receivers  -->
+                <Label Content="Количество электроприёмников:" Grid.Row="12" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="12"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).NumberElectricalReceivers}" />
+                <!--  Hours Worked Per Year  -->
+                <Label Content="Количество часов работы в год:" Grid.Row="13" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="13"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).HoursWorkedPerYear}" />
+                <!--  Location Equipment Installation  -->
+                <Label Content="Номер помещения по генплну:" Grid.Row="14" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="14"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).LocationEquipmentInstallation}" />
+                <!--  Classification Equipment Installation  -->
+                <Label Content="Классификация помещняи по взрыво-,пожароопасности зон:" Grid.Row="15" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="15"
+                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).ClassificationEquipmentInstallation}" />
+                <!--  Save Button  -->
+                <Button
+                    Content="Добавить электроприёмник"
+                    Grid.Row="20"
+                    HorizontalAlignment="Right"
+                    Margin="10" />
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

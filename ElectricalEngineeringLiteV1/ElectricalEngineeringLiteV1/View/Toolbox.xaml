@@ -27,6 +27,7 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Click="MenuItem_Click" Header="Снять потребителя с шины" />
+                        <MenuItem Click="Edit_Click" Header="Редактировать" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
                 <DataGrid.Columns>

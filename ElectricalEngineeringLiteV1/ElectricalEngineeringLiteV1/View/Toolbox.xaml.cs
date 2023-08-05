@@ -1,6 +1,7 @@
 ﻿using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
+using ElectricalEngineeringLiteV1.View.Consumer;
 using ElectricalEngineeringLiteV1.ViewModel;
 
 namespace ElectricalEngineeringLiteV1.View {
@@ -23,6 +24,11 @@ namespace ElectricalEngineeringLiteV1.View {
 
         private void Calculate_Consumer(object sender, RoutedEventArgs e) {
             _viewModel.RowsAssembly();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e) {
+            Window editConsumer = new EditConsumer();
+            editConsumer.Show();
         }
     }
 }

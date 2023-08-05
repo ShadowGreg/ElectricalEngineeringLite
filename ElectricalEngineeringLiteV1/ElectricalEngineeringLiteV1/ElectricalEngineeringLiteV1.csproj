@@ -59,14 +59,17 @@
         <Compile Include="ViewModel\PartToolBarAndPropertyes.cs" />
         <Compile Include="ViewModel\Base.cs" />
         <Compile Include="ViewModel\Util\Row.cs" />
-        <Compile Include="View\AddConsumer.xaml.cs">
-          <DependentUpon>AddConsumer.xaml</DependentUpon>
-        </Compile>
         <Compile Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml.cs">
           <DependentUpon>CalculationTableOfDistributionNetwork.xaml</DependentUpon>
         </Compile>
         <Compile Include="View\CenterFrame\DistributionNetworkTable.xaml.cs">
           <DependentUpon>DistributionNetworkTable.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="View\Consumer\AddConsumer.xaml.cs">
+          <DependentUpon>AddConsumer.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="View\Consumer\EditConsumer.xaml.cs">
+          <DependentUpon>EditConsumer.xaml</DependentUpon>
         </Compile>
         <Compile Include="View\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -97,9 +100,10 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-      <Page Include="View\AddConsumer.xaml" />
       <Page Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml" />
       <Page Include="View\CenterFrame\DistributionNetworkTable.xaml" />
+      <Page Include="View\Consumer\AddConsumer.xaml" />
+      <Page Include="View\Consumer\EditConsumer.xaml" />
       <Page Include="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>

@@ -38,11 +38,12 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
     }
 
     public class Selected: ViewModelBase {
-        private object _obj;
         public Dictionary<string, object> Prop { get; }
 
+        public object Obj { get; }
+
         public Selected(object obj) {
-            _obj = obj;
+            Obj = obj;
             Prop = GetValues(obj);
             OnPropertyChanged(nameof(Selected));
         }

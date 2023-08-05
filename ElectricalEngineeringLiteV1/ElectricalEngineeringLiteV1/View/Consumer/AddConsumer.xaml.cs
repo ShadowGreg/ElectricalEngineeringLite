@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using BillingFillingController.Contrlollers.Consumer;
 using CoreV01.Feeder;
 
-namespace ElectricalEngineeringLiteV1.View {
+namespace ElectricalEngineeringLiteV1.View.Consumer {
     public partial class AddConsumer: Window {
         private readonly ViewModel.ViewModel _viewModel;
         private ConsumerFillController _consumerFillController;
