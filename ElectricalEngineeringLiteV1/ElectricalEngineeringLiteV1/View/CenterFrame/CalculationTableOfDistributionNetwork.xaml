@@ -13,7 +13,7 @@
             AutoGenerateColumns="False"
             DataContext="{DynamicResource ViewModel}"
             IsReadOnly="True"
-            ItemsSource="{Binding Row, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Row}"
             Margin="2"
             RowBackground="LightBlue"
             Sorting="DataGrid_Sorting">

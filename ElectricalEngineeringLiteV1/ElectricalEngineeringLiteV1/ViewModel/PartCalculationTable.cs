@@ -33,8 +33,9 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             get => _rows;
             set
             {
+                _rows = value;
+                OnPropertyChanged(nameof(Row));
                 RowsAssembly();
-                
             }
         }
 
@@ -107,7 +108,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
                 DesignBusbarCurrent = _busbarFillController.BusbarCalculations.DesignBusbarCurrent,
             });
             _rows = tempRows;
-            OnPropertyChanged(nameof(_rows));
+            OnPropertyChanged(nameof(Row));
         }
     }
 }
