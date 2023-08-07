@@ -6,5 +6,9 @@ namespace ElectricalEngineeringLiteV1.View.Consumer {
         public EditConsumer() {
             InitializeComponent();
         }
+
+        private void Close_Window(object sender, RoutedEventArgs e) {
+            Close();
+        }
     }
 }

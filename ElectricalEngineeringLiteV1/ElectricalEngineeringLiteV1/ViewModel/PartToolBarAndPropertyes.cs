@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Reflection;
-using BillingFillingController.Contrlollers.ElectricalPanel;
 using CoreV01.Feeder;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
@@ -26,6 +26,17 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             }
         }
 
+        public BaseConsumer SelectedConsumer
+        {
+            get
+            {
+                var obj = _actual.Obj as BaseConsumer;
+                if (obj != null)
+                    return obj;
+                throw new FileFormatException("Нет возможности скастить до BaseConsumer ошибка ");
+            }
+        }
+
         public object SelectedObject
         {
             get => _actual;
@@ -36,6 +47,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             }
         }
     }
+
 
     public class Selected: ViewModelBase {
         public Dictionary<string, object> Prop { get; }

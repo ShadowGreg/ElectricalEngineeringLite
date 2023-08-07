@@ -47,13 +47,13 @@
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="0"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).TechnologicalNumber, Mode=TwoWay}" />
+                    Text="{Binding SelectedConsumer.TechnologicalNumber}" />
                 <!--  Mechanism Name  -->
                 <Label Content="Наименование электроприёмника" Grid.Row="1" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="1"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).MechanismName}" />
+                    Text="{Binding SelectedConsumer.MechanismName}" />
                 <!--  Load Type  -->
                 <Label Content="Тип технологической нагрузки:" Grid.Row="2" />
                 <ComboBox
@@ -74,76 +74,77 @@
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="3"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).StartingCurrentMultiplicity}" />
+                    Text="{Binding SelectedConsumer.StartingCurrentMultiplicity}" />
                 <!--  Rated Electric Power  -->
                 <Label Content="Номинальная электрическая мощность, кВт:" Grid.Row="4" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="4"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).RatedElectricPower}" />
+                    Text="{Binding SelectedConsumer.RatedElectricPower}" />
                 <!--  Usage Factor  -->
                 <Label Content="Коэффициент использования:" Grid.Row="5" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="5"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).UsageFactor}" />
+                    Text="{Binding SelectedConsumer.UsageFactor}" />
                 <!--  Power Factor  -->
                 <Label Content="Коэффициент мощности косинус фи:" Grid.Row="6" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="6"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).PowerFactor}" />
+                    Text="{Binding SelectedConsumer.PowerFactor}" />
                 <!--  Efficiency Factor  -->
                 <Label Content="Коэффициент полезного действия КПД:" Grid.Row="8" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="8"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).EfficiencyFactor}" />
+                    Text="{Binding SelectedConsumer.EfficiencyFactor}" />
                 <!--  Type Grounding System  -->
                 <Label Content="Тип системы заземления TN-C-S:" Grid.Row="9" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="9"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).TypeGroundingSystem}" />
+                    Text="{Binding SelectedConsumer.TypeGroundingSystem}" />
                 <!--  Voltage  -->
                 <Label Content="Напряжение, В:" Grid.Row="10" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="10"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).Voltage}" />
+                    Text="{Binding SelectedConsumer.Voltage}" />
                 <!--  Phase Number  -->
                 <Label Content="Количество фаз:" Grid.Row="11" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="11"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).PhaseNumber}" />
+                    Text="{Binding SelectedConsumer.PhaseNumber}" />
                 <!--  Number Electrical Receivers  -->
                 <Label Content="Количество электроприёмников:" Grid.Row="12" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="12"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).NumberElectricalReceivers}" />
+                    Text="{Binding SelectedConsumer.NumberElectricalReceivers}" />
                 <!--  Hours Worked Per Year  -->
                 <Label Content="Количество часов работы в год:" Grid.Row="13" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="13"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).HoursWorkedPerYear}" />
+                    Text="{Binding SelectedConsumer.HoursWorkedPerYear}" />
                 <!--  Location Equipment Installation  -->
                 <Label Content="Номер помещения по генплну:" Grid.Row="14" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="14"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).LocationEquipmentInstallation}" />
+                    Text="{Binding SelectedConsumer.LocationEquipmentInstallation}" />
                 <!--  Classification Equipment Installation  -->
                 <Label Content="Классификация помещняи по взрыво-,пожароопасности зон:" Grid.Row="15" />
                 <TextBox
                     Grid.Column="1"
                     Grid.Row="15"
-                    Text="{Binding ((feeder:BaseConsumer)((viewModel:Selected)SelectedObject).Obj).ClassificationEquipmentInstallation}" />
+                    Text="{Binding SelectedConsumer.ClassificationEquipmentInstallation}" />
                 <!--  Save Button  -->
                 <Button
-                    Content="Добавить электроприёмник"
+                    Click="Close_Window"
+                    Content="Сохранить и закрыть окно"
                     Grid.Row="20"
                     HorizontalAlignment="Right"
                     Margin="10" />
