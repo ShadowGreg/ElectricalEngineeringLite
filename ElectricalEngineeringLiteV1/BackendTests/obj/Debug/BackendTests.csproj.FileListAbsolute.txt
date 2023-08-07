@@ -13,3 +13,6 @@ C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTest
 C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.csproj.CopyComplete
 C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.dll
 C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.pdb
+C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV1.exe
+C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV1.pdb
+C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV1.exe.config

@@ -47,6 +47,7 @@
         <Compile Include="ConsumerFillControllerTests.cs" />
         <Compile Include="ElectricalPanelFillControllerTests.cs" />
         <Compile Include="FeederFillControllerTests.cs" />
+        <Compile Include="NodeTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
@@ -61,6 +62,10 @@
       <ProjectReference Include="..\DataBase\DataBase.csproj">
         <Project>{ffd1cd26-4818-4c75-8869-18f6569a7960}</Project>
         <Name>DataBase</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1.csproj">
+        <Project>{fc27a050-25d8-4c56-8263-8b1d3e984b24}</Project>
+        <Name>ElectricalEngineeringLiteV1</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
-namespace ElectricalEngineeringLiteV1.View.CenterFrame {
+namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable {
     public partial class DistributionNetworkTable: Page {
         public DistributionNetworkTable() {
             InitializeComponent();

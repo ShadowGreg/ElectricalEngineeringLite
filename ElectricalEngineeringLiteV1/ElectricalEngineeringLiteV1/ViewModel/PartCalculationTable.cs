@@ -1,28 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using BillingFillingController.Contrlollers.ElectricalPanel;
-using CoreV01.Feeder;
-using CoreV01.Properties;
 using ElectricalEngineeringLiteV1.ViewModel.Util;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
-    public partial class ViewModel: ViewModelBase {
-        private BaseElectricalPanel _electricalPanel;
-        private ElectricalPanelFillController _electricalPanelFillController;
-        private ObservableCollection<Row> _rows;
-
-        public ViewModel() {
-            _consumers = new ObservableCollection<BaseConsumer>(new DataBase.DataBase().GetConsumers());
-            _actual = new Selected(_consumers[0]);
-            _addedConsumer = new BaseConsumer();
-            _electricReceiverFields = new Dictionary<string, object>();
-            GetNewPanel();
-            _electricalPanel = _electricalPanelFillController.GetPanel();
-            _rows = new ObservableCollection<Row>();
-            RowsAssembly();
-        }
-
+    public partial class ViewModel {
         private void GetNewPanel() {
             _electricalPanelFillController = new ElectricalPanelFillController();
             _electricalPanelFillController.AddOnPanel(_consumers.ToList());

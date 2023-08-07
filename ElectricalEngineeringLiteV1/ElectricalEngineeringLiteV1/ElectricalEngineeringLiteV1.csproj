@@ -56,15 +56,17 @@
         </Compile>
         <Compile Include="ViewModel\ConsumerUI.cs" />
         <Compile Include="ViewModel\PartCalculationTable.cs" />
+        <Compile Include="ViewModel\PartNetworkTable.cs" />
         <Compile Include="ViewModel\PartToolBarAndPropertyes.cs" />
         <Compile Include="ViewModel\Base.cs" />
         <Compile Include="ViewModel\Util\Row.cs" />
         <Compile Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml.cs">
           <DependentUpon>CalculationTableOfDistributionNetwork.xaml</DependentUpon>
         </Compile>
-        <Compile Include="View\CenterFrame\DistributionNetworkTable.xaml.cs">
+        <Compile Include="View\CenterFrame\DistributionNetworkTable\DistributionNetworkTable.xaml.cs">
           <DependentUpon>DistributionNetworkTable.xaml</DependentUpon>
         </Compile>
+        <Compile Include="View\CenterFrame\DistributionNetworkTable\Utils\Node.cs" />
         <Compile Include="View\Consumer\AddConsumer.xaml.cs">
           <DependentUpon>AddConsumer.xaml</DependentUpon>
         </Compile>
@@ -101,7 +103,7 @@
     </ItemGroup>
     <ItemGroup>
       <Page Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml" />
-      <Page Include="View\CenterFrame\DistributionNetworkTable.xaml" />
+      <Page Include="View\CenterFrame\DistributionNetworkTable\DistributionNetworkTable.xaml" />
       <Page Include="View\Consumer\AddConsumer.xaml" />
       <Page Include="View\Consumer\EditConsumer.xaml" />
       <Page Include="View\MainWindow.xaml">
