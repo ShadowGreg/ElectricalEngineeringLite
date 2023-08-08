@@ -27,6 +27,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
 
         public void RebaseNode() {
             Node = new Node(_electricalPanel);
+            OnPropertyChanged("Node");
         }
     }
 }

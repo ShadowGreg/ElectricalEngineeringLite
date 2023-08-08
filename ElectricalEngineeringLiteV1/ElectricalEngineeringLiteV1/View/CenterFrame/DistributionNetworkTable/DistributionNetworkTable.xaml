@@ -10,7 +10,7 @@
         <ScrollViewer>
             <StackPanel DataContext="{DynamicResource ViewModel}" Margin="10">
                 <Label Content="{Binding Node.Description}" />
-                <TreeView ItemsSource="{Binding Node.Children}">
+                <TreeView ItemsSource="{Binding Node.Children}" SelectedItemChanged="TreeView_SelectedItemChanged">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding .Children}">
                             <Label Content="{Binding Description}" />

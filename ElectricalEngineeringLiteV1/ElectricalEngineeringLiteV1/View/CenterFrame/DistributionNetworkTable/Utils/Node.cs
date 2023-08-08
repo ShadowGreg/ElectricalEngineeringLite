@@ -5,7 +5,7 @@ using CoreV01.Properties;
 
 namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable {
     public class Node {
-        public DBDependence BaseNode;
+        public DBDependence BaseNode { get; }
         public ObservableCollection<Node> Children { get; }
         public string Description { get; } = "";
 
