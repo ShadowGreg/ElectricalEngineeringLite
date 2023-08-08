@@ -5,23 +5,31 @@ using CoreV01.Properties;
 
 namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable {
     public class Node {
+        public DBDependence BaseNode;
         public ObservableCollection<Node> Children { get; }
         public string Description { get; } = "";
 
         public Node(BaseConsumer consumer) {
-            Description = consumer.TechnologicalNumber;
+            BaseNode = consumer;
+            Description = "электроприёмник: " + consumer.TechnologicalNumber;
+            Children = null;
         }
 
         public Node(BaseCircuitBreaker breaker) {
-            Description = breaker.NameOnBus;
+            BaseNode = breaker;
+            Description = "автомат: " + breaker.NameOnBus;
+            Children = null;
         }
 
         public Node(BaseCable cable) {
-            Description = cable.CableName;
+            BaseNode = cable;
+            Description = "кабель: " + cable.CableName;
+            Children = null;
         }
 
         public Node(BaseFeeder feeder) {
-            Description = feeder.CircuitBreaker.NameOnBus;
+            BaseNode = feeder;
+            Description = "фидер" + feeder.CircuitBreaker.NameOnBus;
             Children = new ObservableCollection<Node> {
                 new Node(feeder.CircuitBreaker),
                 new Node(feeder.Cable),
@@ -29,34 +37,23 @@ namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable 
             };
         }
 
-        public Node(List<BaseFeeder> feeders) {
+        public Node(BaseBusbar busbar) {
+            BaseNode = busbar;
+            Description = busbar.BusbarName;
+            List<BaseFeeder> tempFeeders = busbar.Feeders;
             Children = new ObservableCollection<Node>();
-            foreach (var feeder in feeders) {
+            foreach (BaseFeeder feeder in tempFeeders) {
                 Children.Add(new Node(feeder));
             }
         }
 
-        public Node(BaseBusbar busbar) {
-            Description = busbar.BusbarName;
-            Children = new ObservableCollection<Node> {
-                new Node(busbar.Feeders),
-            };
-        }
-
-        public Node(List<BaseBusbar> busbars) {
-            foreach (var busbar in busbars) {
-                Description = busbar.BusbarName;
-                Children = new ObservableCollection<Node> {
-                    new Node(busbar),
-                };
-            }
-        }
-
         public Node(BaseElectricalPanel panel) {
+            BaseNode = panel;
             Description = panel.TechnologicalNumber;
-            Children = new ObservableCollection<Node> {
-                new Node(panel.BusBars)
-            };
+            Children = new ObservableCollection<Node>();
+            foreach (var busBar in panel.BusBars) {
+                Children.Add(new Node(busBar));
+            }
         }
     }
 }

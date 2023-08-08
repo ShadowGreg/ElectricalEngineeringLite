@@ -6,30 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid DataContext="{DynamicResource ViewModel}">
+    <Grid>
         <ScrollViewer>
-
-            <!-- <TreeView> -->
-            <!--     <TextBox>Система</TextBox> -->
-            <!--     <TreeViewItem Header="Базы данных"> -->
-            <!--         <TreeViewItem Header="MS SQL Server" /> -->
-            <!--         <TreeViewItem Header="MySQL" /> -->
-            <!--         <TreeViewItem Header="MongoDB" /> -->
-            <!--         <TreeViewItem Header="Postgres" /> -->
-            <!--     </TreeViewItem> -->
-            <!--     <TreeViewItem Header="Языки программирования"> -->
-            <!--         <TreeViewItem Header="C-языки"> -->
-            <!--             <TreeViewItem Header="C#" /> -->
-            <!--             <TreeViewItem Header="C/C++" /> -->
-            <!--             <TreeViewItem Header="Java" /> -->
-            <!--         </TreeViewItem> -->
-            <!--         <TreeViewItem Header="Basic"> -->
-            <!--             <TreeViewItem Header="Visual Basic" /> -->
-            <!--             <TreeViewItem Header="VB.Net" /> -->
-            <!--             <TreeViewItem Header="PureBasic" /> -->
-            <!--         </TreeViewItem> -->
-            <!--     </TreeViewItem> -->
-            <!-- </TreeView> -->
+            <StackPanel DataContext="{DynamicResource ViewModel}" Margin="10">
+                <Label Content="{Binding Node.Description}" />
+                <TreeView ItemsSource="{Binding Node.Children}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding .Children}">
+                            <Label Content="{Binding Description}" />
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

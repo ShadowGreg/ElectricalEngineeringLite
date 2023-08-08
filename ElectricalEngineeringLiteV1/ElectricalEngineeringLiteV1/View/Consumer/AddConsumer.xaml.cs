@@ -19,6 +19,7 @@ namespace ElectricalEngineeringLiteV1.View.Consumer {
             var addedConsumer = _viewModel.AddedConsumer;
             _consumerFillController.FillConsumerFields(addedConsumer);
             _viewModel.AddConsumer(addedConsumer);
+            _viewModel.RebaseNode();
         }
 
         private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {

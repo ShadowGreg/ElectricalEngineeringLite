@@ -11,7 +11,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
         private BaseElectricalPanel _electricalPanel;
         private ElectricalPanelFillController _electricalPanelFillController;
         private ObservableCollection<Row> _rows;
-        public Node Node { get; }
+        public static Node Node { get; private set; }
 
         public ViewModel() {
             _consumers = new ObservableCollection<BaseConsumer>(new DataBase.DataBase().GetConsumers());
@@ -23,7 +23,10 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             _rows = new ObservableCollection<Row>();
             RowsAssembly();
             Node = new Node(_electricalPanel);
-            var temp = Node;
+        }
+
+        public void RebaseNode() {
+            Node = new Node(_electricalPanel);
         }
     }
 }
