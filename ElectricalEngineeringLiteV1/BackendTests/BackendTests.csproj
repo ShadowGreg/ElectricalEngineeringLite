@@ -63,9 +63,9 @@
         <Project>{ffd1cd26-4818-4c75-8869-18f6569a7960}</Project>
         <Name>DataBase</Name>
       </ProjectReference>
-      <ProjectReference Include="..\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1.csproj">
+      <ProjectReference Include="..\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV2.csproj">
         <Project>{fc27a050-25d8-4c56-8263-8b1d3e984b24}</Project>
-        <Name>ElectricalEngineeringLiteV1</Name>
+        <Name>ElectricalEngineeringLiteV2</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
