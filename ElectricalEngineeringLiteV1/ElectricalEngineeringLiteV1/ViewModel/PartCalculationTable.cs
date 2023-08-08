@@ -90,6 +90,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
                 DesignBusbarCurrent = _busbarFillController.BusbarCalculations.DesignBusbarCurrent,
             });
             _rows = tempRows;
+            RebaseNode();
             OnPropertyChanged(nameof(Row));
         }
     }

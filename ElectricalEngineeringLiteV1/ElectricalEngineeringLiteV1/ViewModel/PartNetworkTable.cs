@@ -11,7 +11,17 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
         private BaseElectricalPanel _electricalPanel;
         private ElectricalPanelFillController _electricalPanelFillController;
         private ObservableCollection<Row> _rows;
-        public static Node Node { get; private set; }
+        private Node _node;
+
+        public Node Node
+        {
+            get => _node;
+            set
+            {
+                _node = value;
+               OnPropertyChanged("Node");
+            }
+        }
 
         public ViewModel() {
             _consumers = new ObservableCollection<BaseConsumer>(new DataBase.DataBase().GetConsumers());
