@@ -49,9 +49,11 @@ namespace CoreV01.Feeder {
 
         /// <summary>
         /// Потеря напряжения в кабеле по длине %
+        /// 
         /// </summary>
         public double CableVoltageLoss { get; set; } = 0.01;
 
+        ///TODO добавить падение напряжения при пуске потребителя
         /// <summary>
         /// Номинальный ток питания потребителя А
         /// </summary>

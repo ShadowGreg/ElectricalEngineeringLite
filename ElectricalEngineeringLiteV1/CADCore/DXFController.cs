@@ -8,16 +8,17 @@ using netDxf.Header;
 using netDxf.Tables;
 
 namespace CADCore {
-    public class Class1 {
+    public class DXFController {
         // https://github.com/haplokuon/netDxf/tree/master
         private DxfDocument doc;
 
         // your DXF file name
-        string file = "sample.dxf";
+        string file;
         private Layer main, table, text;
 
 
-        public Class1() {
+        public DXFController(string fileName = "sample.dxf") {
+            file = fileName;
             // create a new document, by default it will create an AutoCad2000 DXF version
             doc = new DxfDocument();
             main = new Layer("ЭМ линии");
@@ -25,27 +26,70 @@ namespace CADCore {
             text = new Layer("ЭМ Текст");
         }
 
-        public void New() {
-            // an entity
 
+        private MText DimensionText(Vector2 position, double rotation, string text) {
+            MText mText = new MText(text, position, 2.5, 0.0) {
+                AttachmentPoint = MTextAttachmentPoint.BottomCenter,
+                Rotation = rotation * MathHelper.RadToDeg
+            };
 
-            Line entity = new Line(new Vector2(5, 5), new Vector2(10, 5));
+            return mText;
+        }
 
-            entity.Layer = main;
+        private MText DimensionTextByData(TextData data) {
+            return DimensionText(data.Position, data.Rotation, data.Text);
+        }
 
-            // add your entities here
-            doc.Entities.Add(entity);
-
+        private void SaveFile() {
             // save to file
             doc.Save(file);
 
             // this check is optional but recommended before loading a DXF file
             DxfVersion dxfVersion = DxfDocument.CheckDxfFileVersion(file);
             // netDxf is only compatible with AutoCad2000 and higher DXF versions
-            if (dxfVersion < DxfVersion.AutoCad2000) return;
+            if (dxfVersion < DxfVersion.AutoCad2000) throw new Exception("Версия ниже AutoCad2000");
 
             // load file
             DxfDocument loaded = DxfDocument.Load(file);
+        }
+
+        private void AddTextToDoc(List<TextData> textCoordinate, double[] delta) {
+            foreach (var data in textCoordinate) {
+                MText entity =
+                    DimensionTextByData(new TextData(
+                        new Vector2(data.Position.X + delta[0], data.Position.Y + delta[1]),
+                        data.Rotation,
+                        data.Text));
+                entity.Layer = text;
+                // add your entities here
+                doc.Entities.Add(entity);
+            }
+        }
+
+        private void AddCirclesToDoc(List<double[]> Coordinate, double[] delta) {
+            foreach (var coord in Coordinate) {
+                Circle entity = new Circle(new Vector2(coord[0] + delta[0], coord[1] + delta[1]), coord[2]);
+                entity.Layer = table;
+                // add your entities here
+                doc.Entities.Add(entity);
+            }
+        }
+
+        private void AddLineToDoc(List<double[]> linesCoordinate, double[] delta) {
+            foreach (var coord in linesCoordinate) {
+                Line entity = new Line(new Vector2(coord[0] + delta[0], coord[1] + delta[1]),
+                    new Vector2(coord[2] + delta[0], coord[3] + delta[1]));
+                entity.Layer = table;
+                // add your entities here
+                doc.Entities.Add(entity);
+            }
+        }
+
+        private double[] GetDelta(Vector2 start) {
+            double[] delta = new double[2];
+            delta[0] = start.X - 0;
+            delta[1] = start.Y - 0;
+            return delta;
         }
 
         /// <summary>
@@ -126,32 +170,13 @@ namespace CADCore {
             return new Vector2(70, 0);
         }
 
-        private MText DimensionText(Vector2 position, double rotation, string text) {
-            MText mText = new MText(text, position, 2.5, 0.0) {
-                AttachmentPoint = MTextAttachmentPoint.BottomCenter,
-                Rotation = rotation * MathHelper.RadToDeg
-            };
-
-            return mText;
-        }
-
-        private MText DimensionTextByData(TextData data) {
-            return DimensionText(data.Position, data.Rotation, data.Text);
-        }
-
-        private void SaveFile() {
-            // save to file
-            doc.Save(file);
-
-            // this check is optional but recommended before loading a DXF file
-            DxfVersion dxfVersion = DxfDocument.CheckDxfFileVersion(file);
-            // netDxf is only compatible with AutoCad2000 and higher DXF versions
-            if (dxfVersion < DxfVersion.AutoCad2000) throw new Exception("Версия ниже AutoCad2000");
-
-            // load file
-            DxfDocument loaded = DxfDocument.Load(file);
-        }
-
+        /// <summary>
+        /// Отрисовка вводного автоматического выключателя щита
+        /// </summary>
+        /// <param name="start"> Передаём параметры старт</param>
+        /// <param name="circuitBreaker">Даём вводной автоматический выключатель</param>
+        /// <param name="electricalPanel">Передаём электрический щит полностью</param>
+        /// <returns>возвращает координаты конечной точки</returns>
         public Vector2 DrawIntroductoryUnit(Vector2 start, BaseCircuitBreaker circuitBreaker = null,
             BaseElectricalPanel electricalPanel = null) {
             double[] delta = GetDelta(start);
@@ -219,43 +244,109 @@ namespace CADCore {
             return new Vector2(30 + delta[0], 0 + delta[1]);
         }
 
-        private void AddTextToDoc(List<TextData> textCoordinate, double[] delta) {
-            foreach (var data in textCoordinate) {
-                MText entity =
-                    DimensionTextByData(new TextData(
-                        new Vector2(data.Position.X + delta[0], data.Position.Y + delta[1]),
-                        data.Rotation,
-                        data.Text));
-                entity.Layer = text;
-                // add your entities here
-                doc.Entities.Add(entity);
-            }
+
+        public Vector2 DrawUnit(Vector2 start, BaseFeeder feeder = null) {
+            double[] delta = GetDelta(start);
+            List<double[]> linesCoordinate = new List<double[]>() {
+                new[] { 10.80, 241.07, 9.39, 239.66 },
+                new[] { 5.10, 247.29, 5.10, 206.78 },
+                new[] { 7.15, 237.47, 8.15, 235.74 },
+                new[] { 8.15, 235.74, 9.02, 236.24 },
+                new[] { 10.80, 239.66, 9.39, 241.07 },
+                new[] { 10.10, 234.37, 10.10, 203.00 },
+                new[] { 30.00, 70.00, 30.00, 0.00 },
+                new[] { 5.10, 206.78, 10.10, 203.00 },
+                new[] { 3.10, 249.29, 3.10, 206.78 },
+                new[] { 8.02, 237.97, 7.15, 237.47 },
+                new[] { 5.85, 248.04, 30.00, 248.04 },
+                new[] { 0.00, 250.04, 2.35, 250.04 },
+                new[] { 3.85, 250.04, 30.00, 250.04 },
+                new[] { 0.00, 258.04, 9.35, 258.04 },
+                new[] { 10.85, 258.04, 30.00, 258.04 },
+                new[] { 0.00, 248.04, 4.35, 248.04 },
+                new[] { 10.10, 203.00, 10.10, 84.96 },
+                new[] { 10.10, 257.29, 10.10, 240.37 },
+                new[] { 10.10, 234.37, 7.10, 239.56 },
+                new[] { 0.00, 70.00, 0.00, 0.00 },
+                new[] { 30.00, 70.00, 30.00, 0.00 },
+                new[] { 0.00, 10.00, 30.00, 20.00 },
+                new[] { 0.00, 30.00, 30.00, 30.00 },
+                new[] { 0.00, 20.00, 30.00, 20.00 },
+                new[] { 0.00, 10.00, 30.00, 10.00 },
+                new[] { 0.00, 70.00, 30.00, 70.00 },
+                new[] { 0.00, 50.00, 30.00, 50.00 },
+                new[] { 0.00, 40.00, 30.00, 40.00 },
+                new[] { 8.69, 251.05, 11.50, 252.10 },
+                new[] { 0.00, 0.00, 30.00, 0.00 },
+                new[] { 8.69, 253.63, 11.50, 254.68 },
+                new[] { 8.69, 252.34, 11.50, 253.39 },
+                new[] { 3.10, 206.78, 10.10, 203.00 },
+            };
+
+            AddLineToDoc(linesCoordinate, delta);
+            List<double[]> circlesCoordinate = new List<double[]>() {
+                new[] { 10.10, 258.04, 0.75 },
+                new[] { 5.10, 248.04, 0.75 },
+                new[] { 3.10, 250.04, 0.75 },
+                new[] { 10.10, 80.96, 4.00 }
+            };
+            AddCirclesToDoc(circlesCoordinate, delta);
+
+            List<TextData> textCoordinate = new List<TextData>() {
+                new TextData(new Vector2(15.91, 32.97),
+                    0,
+                    $"{Math.Round(feeder.Consumer.RatedCurrent, 2)}/{Math.Round(feeder.Consumer.StartingCurrent, 2)}"),
+                new TextData(new Vector2(15.91, 22.97), 0, $"{feeder.Consumer.ClassificationEquipmentInstallation}"),
+                new TextData(new Vector2(8.26, 14.91), 0, $"{feeder.Cable.ShortCircuitCurrent}"),
+                new TextData(new Vector2(16.09, 230.51),
+                    0,
+                    $"{feeder.CircuitBreaker.ResponseCurve}{feeder.CircuitBreaker.RatedCurrent}"),
+                new TextData(new Vector2(14.98, 53.21),
+                    0,
+                    $"{feeder.Consumer.TechnologicalNumber} \\P{feeder.Consumer.MechanismName}"),
+                new TextData(new Vector2(15.65, 43.68), 0, $"{feeder.Consumer.RatedElectricPower}"),
+                new TextData(new Vector2(9.93, 78.22), 0, "~\\PM"),
+                new TextData(new Vector2(8.23, 176.70),
+                    1.5707963,
+                    $"{feeder.Cable.CableBrand} {feeder.Cable.CoresNumber}x{feeder.Cable.CableCrossSection}"),
+                new TextData(new Vector2(16.10, 176.70),
+                    1.5707963,
+                    $"{feeder.Cable.CableName}, L={feeder.Cable.CableLength}м"),
+                new TextData(new Vector2(21.88, 11.12),
+                    0,
+                    $"{feeder.Cable.CableVoltageLoss}"), ///TODO "ΔU/ΔUпуск" откорректировать когда будет возможность
+                new TextData(new Vector2(15.91, 1.42), 0, $"{feeder.Consumer.LocationEquipmentInstallation}"),
+                new TextData(new Vector2(15.93, 233.74), 0, $"\\L{feeder.CircuitBreaker.Dimensions}"),
+                new TextData(new Vector2(16.03, 240.41), 0, $"{feeder.CircuitBreaker.NameOnBus}"),
+                new TextData(new Vector2(16.58, 237.41), 0, $"{feeder.CircuitBreaker.Type}"),
+            };
+            AddTextToDoc(textCoordinate, delta);
+            SaveFile();
+            return new Vector2(30 + delta[0], 0 + delta[1]);
         }
 
-        private void AddCirclesToDoc(List<double[]> Coordinate, double[] delta) {
-            foreach (var coord in Coordinate) {
-                Circle entity = new Circle(new Vector2(coord[0] + delta[0], coord[1] + delta[1]), coord[2]);
-                entity.Layer = table;
-                // add your entities here
-                doc.Entities.Add(entity);
+        public Vector2 DrawUnits(Vector2 start, List<BaseFeeder> feeders = null) {
+            Vector2 vector = new Vector2();
+            Vector2 tempStart = start;
+
+            foreach (var feeder in feeders) {
+                tempStart = DrawUnit(tempStart, feeder);
+                vector = tempStart;
             }
+
+            return vector;
         }
 
-        private void AddLineToDoc(List<double[]> linesCoordinate, double[] delta) {
-            foreach (var coord in linesCoordinate) {
-                Line entity = new Line(new Vector2(coord[0] + delta[0], coord[1] + delta[1]),
-                    new Vector2(coord[2] + delta[0], coord[3] + delta[1]));
-                entity.Layer = table;
-                // add your entities here
-                doc.Entities.Add(entity);
-            }
-        }
-
-        private double[] GetDelta(Vector2 start) {
-            double[] delta = new double[2];
-            delta[0] = start.X - 0;
-            delta[1] = start.Y - 0;
-            return delta;
+        public Vector2 DrawPanel(BaseElectricalPanel panel) {
+            Vector2 vector = new Vector2();
+            Vector2 tempStart = new Vector2();
+            tempStart = DrawDiagramFrame(tempStart);
+            vector = tempStart;
+            var circuitBreaker = panel.BusBars[0].InputSwitch;
+            tempStart = DrawIntroductoryUnit(tempStart, circuitBreaker, panel);
+            vector = tempStart;
+            vector = DrawUnits(vector, panel.BusBars[0].Feeders);
+            return vector;
         }
     }
 
