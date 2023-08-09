@@ -11,7 +11,7 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
         private static BaseElectricalPanel _electricalPanel;
         private static BusbarFillController _busbarFillController;
 
-        public ElectricalPanelFillController(double voltage = 400, string name = "Новый щитр ЩР1") {
+        public ElectricalPanelFillController(double voltage = 400, string name = "Новый щит ЩР1") {
             _electricalPanel = new BaseElectricalPanel {
                 TechnologicalNumber = name,
                 BusBars = new List<BaseBusbar>()

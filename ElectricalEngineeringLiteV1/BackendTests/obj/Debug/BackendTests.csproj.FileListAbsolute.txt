@@ -34,3 +34,7 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTest
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.csproj.CopyComplete
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\obj\Debug\BackendTests.pdb
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\CADCore.dll
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\netDxf.dll
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\CADCore.pdb
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\netDxf.xml
