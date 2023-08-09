@@ -10,7 +10,7 @@ namespace BackendTests {
     public class BusbarFillControllerTests {
         private List<BaseConsumer> _consumers;
         private ConsumerFillController _consumerFillController;
-
+//TODO Проверить как работает расчёт мощности где-то лажает всё и итоговая мощность не верная - надо внимательно проследить и запечатлеть этот момент
         [SetUp]
         public void Setup() {
             _consumers = new List<BaseConsumer>() {

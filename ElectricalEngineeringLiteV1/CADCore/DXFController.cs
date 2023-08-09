@@ -177,6 +177,7 @@ namespace CADCore {
         /// <param name="circuitBreaker">Даём вводной автоматический выключатель</param>
         /// <param name="electricalPanel">Передаём электрический щит полностью</param>
         /// <returns>возвращает координаты конечной точки</returns>
+        /// TODO При распечатке фидера необходимо откорректировать МТЕкст - для того тчо бы он становился в ячейку.
         public Vector2 DrawIntroductoryUnit(Vector2 start, BaseCircuitBreaker circuitBreaker = null,
             BaseElectricalPanel electricalPanel = null) {
             double[] delta = GetDelta(start);
@@ -244,7 +245,12 @@ namespace CADCore {
             return new Vector2(30 + delta[0], 0 + delta[1]);
         }
 
-
+        /// <summary>
+        /// Распечатать 1 юнит
+        /// </summary>
+        /// <param name="start">Передаём параметры старт</param>
+        /// <param name="feeder">Подаём фидер </param>
+        /// <returns>возвращает координаты конечной точки</returns>
         public Vector2 DrawUnit(Vector2 start, BaseFeeder feeder = null) {
             double[] delta = GetDelta(start);
             List<double[]> linesCoordinate = new List<double[]>() {

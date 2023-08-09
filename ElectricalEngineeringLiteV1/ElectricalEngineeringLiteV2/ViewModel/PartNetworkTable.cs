@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using BillingFillingController.Contrlollers.ElectricalPanel;
+using CADCore;
 using CoreV01.Feeder;
 using CoreV01.Properties;
 using ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable;
@@ -8,10 +9,11 @@ using ElectricalEngineeringLiteV1.ViewModel.Util;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
     public partial class ViewModel: ViewModelBase {
-        private BaseElectricalPanel _electricalPanel;
         private ElectricalPanelFillController _electricalPanelFillController;
         private ObservableCollection<Row> _rows;
         private Node _node;
+        public DXFController CadController { get; }
+        public BaseElectricalPanel ElectricalPanel { get; set; }
 
         public Node Node
         {
@@ -19,7 +21,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             set
             {
                 _node = value;
-               OnPropertyChanged("Node");
+                OnPropertyChanged("Node");
             }
         }
 
@@ -29,14 +31,15 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             _addedConsumer = new BaseConsumer();
             _electricReceiverFields = new Dictionary<string, object>();
             GetNewPanel();
-            _electricalPanel = _electricalPanelFillController.GetPanel();
+            ElectricalPanel = _electricalPanelFillController.GetPanel();
             _rows = new ObservableCollection<Row>();
             RowsAssembly();
-            Node = new Node(_electricalPanel);
+            Node = new Node(ElectricalPanel);
+            CadController = new DXFController();
         }
 
         public void RebaseNode() {
-            Node = new Node(_electricalPanel);
+            Node = new Node(ElectricalPanel);
             OnPropertyChanged("Node");
         }
     }

@@ -34,6 +34,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="netDxf, Version=2022.11.2.0, Culture=neutral, PublicKeyToken=618c63290969e781, processorArchitecture=MSIL">
+          <HintPath>..\packages\netDxf.2022.11.2\lib\net45\netDxf.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -100,6 +103,7 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
+        <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
       <Page Include="View\CenterFrame\CalculationTableOfDistributionNetwork.xaml" />
@@ -117,6 +121,10 @@
       <ProjectReference Include="..\BillingFillingController\BillingFillingController.csproj">
         <Project>{492c3314-a1bd-4be9-9f60-2079728dd634}</Project>
         <Name>BillingFillingController</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\CADCore\CADCore.csproj">
+        <Project>{69476e7e-ee79-416e-8350-ce1af346eece}</Project>
+        <Name>CADCore</Name>
       </ProjectReference>
       <ProjectReference Include="..\CoreV01\CoreV01.csproj">
         <Project>{953b95ea-8cf2-4b97-8e76-f8c25b6f1c43}</Project>

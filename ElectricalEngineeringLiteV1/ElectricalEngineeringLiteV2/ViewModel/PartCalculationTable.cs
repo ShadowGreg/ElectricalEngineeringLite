@@ -24,11 +24,11 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
         public void RowsAssembly() {
             ObservableCollection<Row> tempRows = new ObservableCollection<Row>();
             GetNewPanel();
-            _electricalPanel = _electricalPanelFillController.GetPanel();
+            ElectricalPanel = _electricalPanelFillController.GetPanel();
             tempRows.Add(new Row() {
-                Name = _electricalPanel.TechnologicalNumber,
+                Name = ElectricalPanel.TechnologicalNumber,
             });
-            var _busbar = _electricalPanel.BusBars[0];
+            var _busbar = ElectricalPanel.BusBars[0];
             tempRows.Add(new Row() {
                 Name = _busbar.BusbarName,
             });
@@ -70,7 +70,7 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
                 DesignBusbarCurrent = _busbarFillController.BusbarCalculations.DesignBusbarCurrent,
             });
             tempRows.Add(new Row() {
-                Name = $"ИТОГО по щиту {_electricalPanel.MechanismName}:",
+                Name = $"ИТОГО по щиту {ElectricalPanel.MechanismName}:",
                 NumberOfReceivers = _busbarFillController.BusbarCalculations.NumberOfReceivers,
                 RatedPower = _busbarFillController.BusbarCalculations.RatedPower,
                 RatedPowerOfIdenticalElectricalReceivers =

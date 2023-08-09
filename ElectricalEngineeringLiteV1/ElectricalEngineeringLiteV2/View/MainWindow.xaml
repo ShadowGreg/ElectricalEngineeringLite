@@ -76,8 +76,8 @@
             Grid.ColumnSpan="3"
             Grid.Row="0"
             VerticalAlignment="Center">
-            <Menu Margin="5">
-                <MenuItem Header="_Расчёт" />
+            <Menu HorizontalAlignment="Center" Margin="5">
+                <MenuItem Click="MenuItem_OnClick" Header="_Распечатать схему" />
                 <MenuItem Header="_Help">
                     <MenuItem Header="_About" />
                 </MenuItem>
