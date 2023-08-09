@@ -40,5 +40,20 @@ namespace BackendTests {
 
             // Assert
         }
+        
+        [Test]
+        public void DrawIntroductoryUnit_With_Distance_Test() {
+            // Arrange
+            ElectricalPanelFillController electricalPanelFillController = new ElectricalPanelFillController();
+            BaseConsumer consumer = new BaseConsumer();
+
+            // Act
+            electricalPanelFillController.AddOnPanel(new List<BaseConsumer>() { consumer });
+            var circuitBreaker = electricalPanelFillController.GetPanel().BusBars[0].InputSwitch;
+            var electricalPanel = electricalPanelFillController.GetPanel();
+            _class1.DrawIntroductoryUnit(new Vector2(150, -300), circuitBreaker, electricalPanel);
+
+            // Assert
+        }
     }
 }
