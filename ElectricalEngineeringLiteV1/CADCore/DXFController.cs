@@ -30,7 +30,8 @@ namespace CADCore {
         private MText DimensionText(Vector2 position, double rotation, string text) {
             MText mText = new MText(text, position, 2.5, 0.0) {
                 AttachmentPoint = MTextAttachmentPoint.BottomCenter,
-                Rotation = rotation * MathHelper.RadToDeg
+                Rotation = rotation * MathHelper.RadToDeg,
+                RectangleWidth = 30
             };
 
             return mText;
@@ -61,6 +62,7 @@ namespace CADCore {
                         data.Rotation,
                         data.Text));
                 entity.Layer = text;
+                
                 // add your entities here
                 doc.Entities.Add(entity);
             }
