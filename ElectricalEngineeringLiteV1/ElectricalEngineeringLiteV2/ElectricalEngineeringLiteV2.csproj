@@ -76,6 +76,9 @@
         <Compile Include="View\Consumer\EditConsumer.xaml.cs">
           <DependentUpon>EditConsumer.xaml</DependentUpon>
         </Compile>
+        <Compile Include="View\Help\LicenseAgreement.xaml.cs">
+          <DependentUpon>LicenseAgreement.xaml</DependentUpon>
+        </Compile>
         <Compile Include="View\MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
           <SubType>Code</SubType>
@@ -110,6 +113,7 @@
       <Page Include="View\CenterFrame\DistributionNetworkTable\DistributionNetworkTable.xaml" />
       <Page Include="View\Consumer\AddConsumer.xaml" />
       <Page Include="View\Consumer\EditConsumer.xaml" />
+      <Page Include="View\Help\LicenseAgreement.xaml" />
       <Page Include="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>

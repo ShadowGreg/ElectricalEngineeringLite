@@ -29,7 +29,7 @@ namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable 
 
         public Node(BaseFeeder feeder) {
             BaseNode = feeder;
-            Description = "фидер" + feeder.CircuitBreaker.NameOnBus;
+            Description = "фидер: " + feeder.CircuitBreaker.NameOnBus;
             Children = new ObservableCollection<Node> {
                 new Node(feeder.CircuitBreaker),
                 new Node(feeder.Cable),

@@ -39,3 +39,5 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalE
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\bin\Debug\netDxf.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\bin\Debug\CADCore.pdb
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\bin\Debug\netDxf.xml
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\LicenseAgreement.baml
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\LicenseAgreement.g.cs

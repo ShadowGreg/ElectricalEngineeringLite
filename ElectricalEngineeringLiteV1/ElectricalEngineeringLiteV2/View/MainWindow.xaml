@@ -1,6 +1,6 @@
 ﻿<Window
     Height="600"
-    Title="MainWindow"
+    Title="Electrical Engineering Light"
     Width="900"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d"
@@ -21,7 +21,7 @@
             <ColumnDefinition MaxWidth="250" MinWidth="100" />
         </Grid.ColumnDefinitions>
         <Border
-            Background="LightBlue"
+            Background="WhiteSmoke"
             BorderBrush="Black"
             BorderThickness="1"
             Grid.Column="0"
@@ -29,25 +29,22 @@
             <Frame Source="ObjectPropertiesWindow.xaml" />
         </Border>
         <Border
-            Background="LightGreen"
-            BorderBrush="Black"
+            Background="LightGray"
+            BorderBrush="LightBlue"
             BorderThickness="1"
             Grid.Column="1"
             Grid.Row="1">
             <TabControl>
-                <TabItem Header="Таблица принципиальной схемы">
+                <TabItem Header="Структурная схема">
                     <Frame Source="/View/CenterFrame/DistributionNetworkTable/DistributionNetworkTable.xaml" />
                 </TabItem>
                 <TabItem Header="Расчётная таблица">
                     <Frame Source="/View/CenterFrame/CalculationTableOfDistributionNetwork.xaml" />
                 </TabItem>
-
-
             </TabControl>
-
         </Border>
         <Border
-            Background="LightBlue"
+            Background="WhiteSmoke"
             BorderBrush="Black"
             BorderThickness="1"
             Grid.Column="2"
@@ -76,29 +73,16 @@
             Grid.ColumnSpan="3"
             Grid.Row="0"
             VerticalAlignment="Center">
-            <Menu HorizontalAlignment="Center" Margin="5">
-                <MenuItem Click="MenuItem_OnClick" Header="_Распечатать схему" />
-                <MenuItem Header="_Help">
-                    <MenuItem Header="_About" />
+            <Menu HorizontalAlignment="Center" Margin="10">
+                <MenuItem
+                    Click="MenuItem_OnClick"
+                    Header="_Сформировать схему"
+                    ToolTip="Сохранить схему в формате DXF в папке с программой" />
+                <MenuItem Header="_Помощь">
+                    <MenuItem Header="_О программе" />
+                    <MenuItem Click="License_OnClick" Header="_Лицензионное соглашение" />
                 </MenuItem>
             </Menu>
         </Border>
-        <!--  <Border  -->
-        <!--  BorderThickness="4"  -->
-        <!--  Grid.Column="0"  -->
-        <!--  Grid.ColumnSpan="3"  -->
-        <!--  Grid.Row="2"  -->
-        <!--  VerticalAlignment="Center">  -->
-        <!--    -->
-        <!--  <TextBox  -->
-        <!--  Background="Black"  -->
-        <!--  DataContext="{DynamicResource ViewModel}"  -->
-        <!--  Foreground="BlanchedAlmond"  -->
-        <!--  Height="40"  -->
-        <!--  SelectionBrush="Aqua"  -->
-        <!--  Text="{Binding Text, Mode=TwoWay}"  -->
-        <!--  TextWrapping="Wrap"  -->
-        <!--  VerticalScrollBarVisibility="Auto" />  -->
-        <!-- </Border> -->
     </Grid>
 </Window>

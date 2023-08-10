@@ -31,7 +31,6 @@ namespace CADCore {
             MText mText = new MText(text, position, 2.5, 0.0) {
                 AttachmentPoint = MTextAttachmentPoint.BottomCenter,
                 Rotation = rotation * MathHelper.RadToDeg,
-                RectangleWidth = 30
             };
 
             return mText;

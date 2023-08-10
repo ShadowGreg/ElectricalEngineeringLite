@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ElectricalEngineeringLiteV1.View.Help;
 
 namespace ElectricalEngineeringLiteV1.View {
     /// <summary>
@@ -13,6 +14,15 @@ namespace ElectricalEngineeringLiteV1.View {
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e) {
             _viewModel.CadController.DrawPanel(_viewModel.ElectricalPanel);
+            MessageBox.Show("Создание схемы завершено",
+                "Схема",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
+        private void License_OnClick(object sender, RoutedEventArgs e) {
+            Window licenseAgreement = new LicenseAgreement();
+            licenseAgreement.Show();
         }
     }
 }
