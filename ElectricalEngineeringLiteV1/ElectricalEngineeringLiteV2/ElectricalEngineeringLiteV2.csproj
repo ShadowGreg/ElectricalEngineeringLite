@@ -126,9 +126,9 @@
       <Page Include="View\Toolbox.xaml" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\BillingFillingController\BillingFillingController.csproj">
+      <ProjectReference Include="..\BillingFillingController_V02\BillingFillingController_V02.csproj">
         <Project>{492c3314-a1bd-4be9-9f60-2079728dd634}</Project>
-        <Name>BillingFillingController</Name>
+        <Name>BillingFillingController_V02</Name>
       </ProjectReference>
       <ProjectReference Include="..\CADCore\CADCore.csproj">
         <Project>{69476e7e-ee79-416e-8350-ce1af346eece}</Project>

@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricalEngineeringLiteV2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreV02", "CoreV02\CoreV02.csproj", "{953B95EA-8CF2-4B97-8E76-F8C25B6F1C43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingFillingController", "BillingFillingController\BillingFillingController.csproj", "{492C3314-A1BD-4BE9-9F60-2079728DD634}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingFillingController_V02", "BillingFillingController_V02\BillingFillingController_V02.csproj", "{492C3314-A1BD-4BE9-9F60-2079728DD634}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{FFD1CD26-4818-4C75-8869-18F6569A7960}"
 EndProject

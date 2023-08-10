@@ -7,5 +7,5 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\obj
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\obj\Debug\CADCore.csproj.CopyComplete
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\obj\Debug\CADCore.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\obj\Debug\CADCore.pdb
-C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\bin\Debug\CoreV01.dll
-C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\bin\Debug\CoreV01.pdb
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\bin\Debug\CoreV02.dll
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\CADCore\bin\Debug\CoreV02.pdb

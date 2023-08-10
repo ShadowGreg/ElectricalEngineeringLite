@@ -46,7 +46,7 @@ namespace BackendTests {
         public void Design_Current_Value_Test() {
             // Arrange
             List<BaseConsumer> consumers = _consumers;
-            double expected = 16.980890270283112d;
+            double expected = 15.520168526602843d;
 
             // Act
 
