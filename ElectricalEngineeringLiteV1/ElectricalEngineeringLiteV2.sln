@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricalEngineeringLiteV2", "ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV2.csproj", "{FC27A050-25D8-4C56-8263-8B1D3E984B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreV01", "CoreV01\CoreV01.csproj", "{953B95EA-8CF2-4B97-8E76-F8C25B6F1C43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreV02", "CoreV02\CoreV02.csproj", "{953B95EA-8CF2-4B97-8E76-F8C25B6F1C43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingFillingController", "BillingFillingController\BillingFillingController.csproj", "{492C3314-A1BD-4BE9-9F60-2079728DD634}"
 EndProject

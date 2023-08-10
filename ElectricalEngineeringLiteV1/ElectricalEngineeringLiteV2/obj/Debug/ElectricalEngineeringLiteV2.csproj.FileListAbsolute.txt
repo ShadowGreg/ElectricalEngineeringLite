@@ -41,3 +41,5 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalE
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\bin\Debug\netDxf.xml
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\LicenseAgreement.baml
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\LicenseAgreement.g.cs
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\JobDescription.g.cs
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\Help\JobDescription.baml

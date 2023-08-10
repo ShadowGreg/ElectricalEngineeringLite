@@ -79,7 +79,7 @@
                     Header="_Сформировать схему"
                     ToolTip="Сохранить схему в формате DXF в папке с программой" />
                 <MenuItem Header="_Помощь">
-                    <MenuItem Header="_О программе" />
+                    <MenuItem Click="JobDescription_OnClick" Header="_О программе" />
                     <MenuItem Click="License_OnClick" Header="_Лицензионное соглашение" />
                 </MenuItem>
             </Menu>

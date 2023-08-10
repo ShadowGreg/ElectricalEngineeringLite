@@ -76,6 +76,9 @@
         <Compile Include="View\Consumer\EditConsumer.xaml.cs">
           <DependentUpon>EditConsumer.xaml</DependentUpon>
         </Compile>
+        <Compile Include="View\Help\JobDescription.xaml.cs">
+          <DependentUpon>JobDescription.xaml</DependentUpon>
+        </Compile>
         <Compile Include="View\Help\LicenseAgreement.xaml.cs">
           <DependentUpon>LicenseAgreement.xaml</DependentUpon>
         </Compile>
@@ -113,6 +116,7 @@
       <Page Include="View\CenterFrame\DistributionNetworkTable\DistributionNetworkTable.xaml" />
       <Page Include="View\Consumer\AddConsumer.xaml" />
       <Page Include="View\Consumer\EditConsumer.xaml" />
+      <Page Include="View\Help\JobDescription.xaml" />
       <Page Include="View\Help\LicenseAgreement.xaml" />
       <Page Include="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
@@ -130,9 +134,9 @@
         <Project>{69476e7e-ee79-416e-8350-ce1af346eece}</Project>
         <Name>CADCore</Name>
       </ProjectReference>
-      <ProjectReference Include="..\CoreV01\CoreV01.csproj">
+      <ProjectReference Include="..\CoreV02\CoreV02.csproj">
         <Project>{953b95ea-8cf2-4b97-8e76-f8c25b6f1c43}</Project>
-        <Name>CoreV01</Name>
+        <Name>CoreV02</Name>
       </ProjectReference>
       <ProjectReference Include="..\DataBase\DataBase.csproj">
         <Project>{ffd1cd26-4818-4c75-8869-18f6569a7960}</Project>

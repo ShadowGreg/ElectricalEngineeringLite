@@ -24,5 +24,10 @@ namespace ElectricalEngineeringLiteV1.View {
             Window licenseAgreement = new LicenseAgreement();
             licenseAgreement.Show();
         }
+
+        private void JobDescription_OnClick(object sender, RoutedEventArgs e) {
+            Window jobDescription = new JobDescription();
+            jobDescription.Show();
+        }
     }
 }
