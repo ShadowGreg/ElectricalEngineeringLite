@@ -26,7 +26,7 @@
                 SelectedItem="{Binding SelectedObject}">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Click="MenuItem_Click" Header="Снять потребителя с шины" />
+                        <MenuItem Click="DelConsumer_Click" Header="Удалить потребитель" />
                         <MenuItem Click="Edit_Click" Header="Редактировать" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>

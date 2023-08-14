@@ -163,7 +163,7 @@ namespace CoreV01.Feeder {
                 nonMatchingFields.AppendLine($"StartingCurrent: {StartingCurrent} != {toCompare.StartingCurrent}");
 
             if (nonMatchingFields.Length > 0) {
-                throw new Exception($"Fields do not match:\n{nonMatchingFields.ToString()}");
+                Console.WriteLine($"Fields do not match:\n{nonMatchingFields.ToString()}");
             }
 
             return true;

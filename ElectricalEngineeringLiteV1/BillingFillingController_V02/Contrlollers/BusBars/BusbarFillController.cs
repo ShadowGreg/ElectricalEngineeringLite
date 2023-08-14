@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BillingFillingController.Calculators;
 using BillingFillingController.Contrlollers.Breakers;
 using BillingFillingController.Contrlollers.Feeder;
@@ -22,7 +23,12 @@ namespace BillingFillingController.Contrlollers.BusBars {
             BusbarCalculations = new RMTCalculation();
         }
 
-
+        /// <summary>
+        /// Добавление одного электроприёмника на шину 
+        /// </summary>
+        /// <param name="newConsumer">Экземпляр класса BaseConsumer</param>
+        /// <param name="length">Длина от распред щита до потребителя</param>
+        /// <param name="maxVoltageDrop">Максимальное падение напряжения в линии до электроприёмника</param>
         public void AddConsumerOnBus(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
             if (_feeders.Count == 0) {
@@ -61,16 +67,46 @@ namespace BillingFillingController.Contrlollers.BusBars {
             return new CircuitBreakerFillController().GetInputSwitch(_busbar.RatedCurrent);
         }
 
+        /// <summary>
+        /// добавление коллекциия потребителей на шину 
+        /// </summary>
+        /// <param name="consumers">Коллекция экземпляров типа BaseConsumer</param>
         public void AddConsumersListOnBus(IEnumerable<BaseConsumer> consumers) {
             _consumers.AddRange(consumers);
             foreach (var consumer in consumers) {
                 AddConsumerOnBus(consumer);
             }
         }
+
         /// <summary>
         /// Получить рассчитанную шину все данные уже прогружены
         /// </summary>
         /// <returns>объект класса BaseBusbar</returns>
         public BaseBusbar GetBusbar() => _busbar;
+
+        /// <summary>
+        /// Удаление одного электроприёмника с шины 
+        /// </summary>
+        /// <param name="delConsumer">Экземпляр класса BaseConsumer</param>
+        /// <param name="length">Длина от распред щита до потребителя</param>
+        /// <param name="maxVoltageDrop">Максимальное падение напряжения в линии до электроприёмника</param>
+        public void DelConsumerOnBus(BaseConsumer delConsumer) {
+            if (_consumers.Remove(delConsumer)) {
+                int index = 0;
+                foreach (var feeder in _feeders) {
+                    if (feeder.Consumer == delConsumer) {
+                        _feeders.RemoveAt(index);
+                        break;
+                    }
+
+                    index++;
+                }
+
+                FillBusbarParams();
+            }
+            else {
+                throw new InvalidOperationException("Ошибка удаляемого объекта с шины");
+            }
+        }
     }
 }

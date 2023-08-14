@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using CoreV01.Feeder;
 using ElectricalEngineeringLiteV1.View.Consumer;
+using ElectricalEngineeringLiteV1.ViewModel;
 
 namespace ElectricalEngineeringLiteV1.View {
     public partial class Toolbox: Page {
@@ -16,8 +18,9 @@ namespace ElectricalEngineeringLiteV1.View {
             addConsumer.Show();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e) {
-            throw new System.NotImplementedException();
+        private void DelConsumer_Click(object sender, RoutedEventArgs e) {
+            _viewModel.DelConsumer(_viewModel.SelectedConsumer);
+            _viewModel.RowsAssembly();
         }
 
         private void Calculate_Consumer(object sender, RoutedEventArgs e) {

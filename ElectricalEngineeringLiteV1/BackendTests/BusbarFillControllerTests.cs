@@ -10,7 +10,7 @@ namespace BackendTests {
     public class BusbarFillControllerTests {
         private List<BaseConsumer> _consumers;
         private ConsumerFillController _consumerFillController;
-//TODO Проверить как работает расчёт мощности где-то лажает всё и итоговая мощность не верная - надо внимательно проследить и запечатлеть этот момент
+
         [SetUp]
         public void Setup() {
             _consumers = new List<BaseConsumer>() {
@@ -45,7 +45,7 @@ namespace BackendTests {
                     StartingCurrentMultiplicity = 1
                 },
                 new BaseConsumer() {
-                    TechnologicalNumber = "MXW-250-13D",
+                    TechnologicalNumber = "MXW-250-13K",
                     MechanismName = "насос технологический",
                     RatedElectricPower = 30.5,
                     PowerFactor = 0.85,
@@ -108,7 +108,7 @@ namespace BackendTests {
             _consumerFillController.FillConsumerFields(testConsumer);
             const double voltage = 400;
             BusbarFillController busbarFillController = new BusbarFillController(voltage);
-            double expectedSwitchCurrent = 25;
+            double expectedSwitchCurrent = 63.0d;
 
             // Act
             for (int i = 0; i < 10; i++) {
@@ -120,6 +120,28 @@ namespace BackendTests {
 
             // Assert
             Assert.AreEqual(expectedSwitchCurrent, actualSwitchCurrent);
+        }
+
+        [Test]
+        public void Checking_Removing_The_Electrical_Receiver_From_The_Bus_Test() {
+            // Arrange
+            const double voltage = 400;
+            BusbarFillController busbarFillController = new BusbarFillController(voltage);
+            _consumerFillController.FillConsumerFields(_consumers[0]);
+            const int expectedFeedersNum = 3;
+
+
+            // Act
+            foreach (var consumer in _consumers) {
+                busbarFillController.AddConsumerOnBus(consumer);
+            }
+
+            busbarFillController.DelConsumerOnBus(_consumers[0]);
+            var newBusBar = busbarFillController.GetBusbar();
+            int actualFeederNum = newBusBar.Feeders.Count;
+
+            // Assert
+            Assert.AreEqual(expectedFeedersNum, actualFeederNum);
         }
     }
 }

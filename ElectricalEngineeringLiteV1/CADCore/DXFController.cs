@@ -178,7 +178,9 @@ namespace CADCore {
         /// <param name="circuitBreaker">Даём вводной автоматический выключатель</param>
         /// <param name="electricalPanel">Передаём электрический щит полностью</param>
         /// <returns>возвращает координаты конечной точки</returns>
-        /// TODO При распечатке фидера необходимо откорректировать МТЕкст - для того тчо бы он становился в ячейку.
+        /// 
+        /// TODO При распечатке фидера необходимо откорректировать МТЕкст - для того тчо бы он становился в ячейку. Это надо сделать отдельно так что бы  
+        ///  
         public Vector2 DrawIntroductoryUnit(Vector2 start, BaseCircuitBreaker circuitBreaker = null,
             BaseElectricalPanel electricalPanel = null) {
             double[] delta = GetDelta(start);

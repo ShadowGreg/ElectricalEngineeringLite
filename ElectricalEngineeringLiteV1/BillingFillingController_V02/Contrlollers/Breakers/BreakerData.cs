@@ -19,6 +19,12 @@ namespace BillingFillingController.Contrlollers.Breakers {
                 { 80, new BaseCircuitBreaker() { RatedCurrent = 80 } },
                 { 100, new BaseCircuitBreaker() { RatedCurrent = 100 } },
                 { 125, new BaseCircuitBreaker() { RatedCurrent = 125 } },
+                { 160, new BaseCircuitBreaker() { RatedCurrent = 160 } },
+                { 200, new BaseCircuitBreaker() { RatedCurrent = 200 } },
+                { 250, new BaseCircuitBreaker() { RatedCurrent = 250 } },
+                { 630, new BaseCircuitBreaker() { RatedCurrent = 630 } },
+                { 800, new BaseCircuitBreaker() { RatedCurrent = 800 } },
+                { 1250, new BaseCircuitBreaker() { RatedCurrent = 1250 } },
             };
 
         public readonly Dictionary<double, BaseCircuitBreaker> _singlePolesBreakerData =

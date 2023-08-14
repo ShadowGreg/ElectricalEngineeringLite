@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using BillingFillingController.Contrlollers.ElectricalPanel;
+using CoreV01.Feeder;
 using ElectricalEngineeringLiteV1.ViewModel.Util;
 
 namespace ElectricalEngineeringLiteV1.ViewModel {
@@ -92,6 +94,17 @@ namespace ElectricalEngineeringLiteV1.ViewModel {
             _rows = tempRows;
             RebaseNode();
             OnPropertyChanged(nameof(Row));
+        }
+
+        public void DelConsumer(BaseConsumer consumer) {
+            List<BaseConsumer> tempRows = new List<BaseConsumer>();
+            var temp = consumer;
+            foreach (var item in _consumers) {
+                if (item != consumer) tempRows.Add(item);
+            }
+
+            _consumers = new ObservableCollection<BaseConsumer>(tempRows);
+            OnPropertyChanged(nameof(Consumers));
         }
     }
 }
