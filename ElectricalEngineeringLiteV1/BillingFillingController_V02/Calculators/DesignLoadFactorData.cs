@@ -446,13 +446,16 @@ namespace BillingFillingController.Calculators {
 
             List<double> internalKeys = _data[desiredForeignKey].Keys.ToList();
             double desiredInternalKey = 0;
-            for (int i = 0; i < internalKeys.Count; i++) {
-                if (busUtilizationFactor > internalKeys[i] &&
-                    busUtilizationFactor < internalKeys[i + 1]) {
+            for (int i = 1; i < internalKeys.Count; i++) {
+                if (busUtilizationFactor > internalKeys[i-1] &&
+                    busUtilizationFactor < internalKeys[i]) {
                     desiredInternalKey = internalKeys[i];
                     break;
                 }
             }
+
+            if (desiredInternalKey == 0)
+                desiredInternalKey = internalKeys[internalKeys.Count - 1];
 
             var temp = _data[desiredForeignKey][desiredInternalKey];
             return temp;

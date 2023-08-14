@@ -25,7 +25,7 @@ namespace BackendTests {
             FeederFillController controller = new FeederFillController(_consumers[0]);
 
             // Act
-            var feeder = controller.GetFeeder(20, 1, 2.3);
+            var feeder = controller.GetFeeder(1, 2.3, 20);
 
             // Assert
             Assert.NotNull(feeder);
@@ -48,7 +48,7 @@ namespace BackendTests {
             FeederFillController controller = new FeederFillController(testConsumer);
 
             // Act
-            var feeder = controller.GetFeeder(20, 1, 2.3);
+            var feeder = controller.GetFeeder(1, 2.3, 20);
 
             // Assert
             Assert.NotNull(feeder);

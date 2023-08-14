@@ -26,11 +26,11 @@ namespace BillingFillingController.Contrlollers.BusBars {
         public void AddConsumerOnBus(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
             if (_feeders.Count == 0) {
-                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, 1, maxVoltageDrop));
+                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(1, maxVoltageDrop, length));
             }
             else {
                 int index = _feeders.Count + 1;
-                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(length, index, maxVoltageDrop));
+                _feeders.Add(new FeederFillController(newConsumer).GetFeeder(index, maxVoltageDrop, length));
             }
 
             _feeders[_feeders.Count - 1].OwnerId = _busbar.SelfId;

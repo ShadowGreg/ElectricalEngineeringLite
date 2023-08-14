@@ -18,11 +18,9 @@ C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTest
 C:\workspace\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV1.exe.config
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BackendTests.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BackendTests.pdb
-C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BillingFillingController.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\DataBase.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV2.exe
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\nunit.framework.dll
-C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BillingFillingController.pdb
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\DataBase.pdb
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV2.pdb
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\ElectricalEngineeringLiteV2.exe.config
@@ -38,3 +36,5 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTest
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\netDxf.xml
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\CoreV02.dll
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\CoreV02.pdb
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BillingFillingController_V02.dll
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\BackendTests\bin\Debug\BillingFillingController_V02.pdb

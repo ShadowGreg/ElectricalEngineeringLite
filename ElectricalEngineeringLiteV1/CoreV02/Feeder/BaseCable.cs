@@ -45,11 +45,10 @@ namespace CoreV01.Feeder {
         /// <summary>
         /// Длинна кабеля на участке в м
         /// </summary>
-        public double CableLength { get; set; } = 1;
+        public double CableLength { get; set; } = 5;
 
         /// <summary>
         /// Потеря напряжения в кабеле по длине %
-        /// 
         /// </summary>
         public double CableVoltageLoss { get; set; } = 0.01;
 

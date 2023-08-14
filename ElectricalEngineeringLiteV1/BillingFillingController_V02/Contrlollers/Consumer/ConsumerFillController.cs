@@ -10,10 +10,14 @@ namespace BillingFillingController.Contrlollers.Consumer {
             _calculator = new ConsumerCalculator();
         }
 
+        /// <summary>
+        /// Обработка подаваемого в метод потребителя - меняются поля внутри
+        /// </summary>
+        /// <param name="сonsumer">Подаётся объект типа BaseConsumer</param>
+        /// <exception cref="FormatException">Пока исключение маленькое по обработке других систем заземления</exception>
         public void FillConsumerFields(BaseConsumer сonsumer) {
             if (сonsumer.TypeGroundingSystem.Contains("TN")) {
                 сonsumer.PhaseNumber = PhaseNumber(сonsumer.Voltage);
-                сonsumer.UsageFactor = 0.33;
                 сonsumer.TanPowerFactor = _calculator.GetTanPowerFactor(сonsumer.PowerFactor);
                 сonsumer.RatedPowerSquared = _calculator.GetRatedPowerSquared(сonsumer.RatedElectricPower);
                 сonsumer.ReactivePower = _calculator.GetReactivePower(сonsumer);
