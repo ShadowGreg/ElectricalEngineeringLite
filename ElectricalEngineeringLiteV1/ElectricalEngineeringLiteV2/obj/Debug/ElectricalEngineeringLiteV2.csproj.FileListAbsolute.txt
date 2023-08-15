@@ -46,3 +46,5 @@ C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalE
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\ElectricalEngineeringLiteV2_Content.g.cs
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\EditElements\EditCable.g.cs
 C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\EditElements\EditCable.baml
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\EditElements\EditCircuitBreaker.g.cs
+C:\workspace\ElectricalEngineeringLiteV2\ElectricalEngineeringLiteV1\ElectricalEngineeringLiteV2\obj\Debug\View\EditElements\EditCircuitBreaker.baml
