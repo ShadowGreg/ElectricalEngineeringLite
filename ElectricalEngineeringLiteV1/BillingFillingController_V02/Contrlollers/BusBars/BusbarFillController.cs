@@ -29,7 +29,7 @@ namespace BillingFillingController.Contrlollers.BusBars {
         /// <param name="newConsumer">Экземпляр класса BaseConsumer</param>
         /// <param name="length">Длина от распред щита до потребителя</param>
         /// <param name="maxVoltageDrop">Максимальное падение напряжения в линии до электроприёмника</param>
-        public void AddConsumerOnBus(BaseConsumer newConsumer, double length = 5, double maxVoltageDrop = 2.5) {
+        public void AddConsumerOnBus(BaseConsumer newConsumer, double length, double maxVoltageDrop = 2.5) {
             _consumers.Add(newConsumer);
             if (_feeders.Count == 0) {
                 _feeders.Add(new FeederFillController(newConsumer).GetFeeder(1, maxVoltageDrop, length));
@@ -74,7 +74,8 @@ namespace BillingFillingController.Contrlollers.BusBars {
         public void AddConsumersListOnBus(IEnumerable<BaseConsumer> consumers) {
             _consumers.AddRange(consumers);
             foreach (var consumer in consumers) {
-                AddConsumerOnBus(consumer);
+                const double lenght = 5;
+                AddConsumerOnBus(consumer, lenght);
             }
         }
 

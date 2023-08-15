@@ -11,8 +11,9 @@
             AutoGenerateColumns="False"
             DataContext="{DynamicResource ViewModel}"
             IsReadOnly="True"
-            ItemsSource="{Binding SelectedObject.Prop}"
+            ItemsSource="{Binding SelectedObject.Prop, UpdateSourceTrigger=PropertyChanged}"
             VerticalScrollBarVisibility="Auto">
+
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Key}" Header="Свойство" />
                 <DataGridTextColumn Binding="{Binding Value}" Header="Значение" />

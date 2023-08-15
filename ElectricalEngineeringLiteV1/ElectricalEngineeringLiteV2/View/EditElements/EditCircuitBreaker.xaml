@@ -1,0 +1,86 @@
+﻿<Window
+    Height="450"
+    Title="EditCircuitBreaker"
+    Width="800"
+    mc:Ignorable="d"
+    x:Class="ElectricalEngineeringLiteV1.View.EditElements.EditCircuitBreaker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ElectricalEngineeringLiteV1.View.EditElements"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <StackPanel Margin="10">
+            <GroupBox
+                Header="Circuit Breaker Parameters"
+                Margin="10"
+                Padding="10">
+                <ScrollViewer Height="300">
+                    <Grid DataContext="{DynamicResource ViewModel}" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Name on Bus  -->
+                        <Label Content="Name on Bus:" Grid.Row="0" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="{Binding SelectedCircuitBreaker.NameOnBus}" />
+                        <!--  Type  -->
+                        <Label Content="Type:" Grid.Row="1" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Text="{Binding SelectedCircuitBreaker.Type}" />
+                        <!--  Dimensions  -->
+                        <Label Content="Dimensions:" Grid.Row="2" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Text="{Binding SelectedCircuitBreaker.Dimensions}" />
+                        <!--  Response Curve  -->
+                        <Label Content="Response Curve:" Grid.Row="3" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            Text="{Binding SelectedCircuitBreaker.ResponseCurve}" />
+                        <!--  Rated Current  -->
+                        <Label Content="Rated Current, A:" Grid.Row="4" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            Text="{Binding SelectedCircuitBreaker.RatedCurrent}" />
+                        <!--  Number of Poles  -->
+                        <Label Content="Number of Poles:" Grid.Row="5" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="5"
+                            Text="{Binding SelectedCircuitBreaker.NumberPoles}" />
+                        <!--  Switching Capacity  -->
+                        <Label Content="Switching Capacity, kA:" Grid.Row="6" />
+                        <TextBox
+                            Grid.Column="1"
+                            Grid.Row="6"
+                            Text="{Binding SelectedCircuitBreaker.SwitchingCapacity}" />
+                    </Grid>
+                </ScrollViewer>
+            </GroupBox>
+            <!--  Save Button  -->
+            <Button
+                Click="Close_Window"
+                Content="Save and Close Window"
+                HorizontalAlignment="Right"
+                Margin="10" />
+        </StackPanel>
+    </Grid>
+</Window>

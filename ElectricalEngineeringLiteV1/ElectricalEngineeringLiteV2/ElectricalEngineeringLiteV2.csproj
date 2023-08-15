@@ -77,6 +77,12 @@
         <Compile Include="View\Consumer\EditConsumer.xaml.cs">
           <DependentUpon>EditConsumer.xaml</DependentUpon>
         </Compile>
+        <Compile Include="View\EditElements\EditCable.xaml.cs">
+          <DependentUpon>EditCable.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="View\EditElements\EditCircuitBreaker.xaml.cs">
+          <DependentUpon>EditCircuitBreaker.xaml</DependentUpon>
+        </Compile>
         <Compile Include="View\Help\JobDescription.xaml.cs">
           <DependentUpon>JobDescription.xaml</DependentUpon>
         </Compile>
@@ -121,6 +127,8 @@
       <Page Include="View\CenterFrame\DistributionNetworkTable\DistributionNetworkTable.xaml" />
       <Page Include="View\Consumer\AddConsumer.xaml" />
       <Page Include="View\Consumer\EditConsumer.xaml" />
+      <Page Include="View\EditElements\EditCable.xaml" />
+      <Page Include="View\EditElements\EditCircuitBreaker.xaml" />
       <Page Include="View\Help\JobDescription.xaml" />
       <Page Include="View\Help\LicenseAgreement.xaml" />
       <Page Include="View\MainWindow.xaml">

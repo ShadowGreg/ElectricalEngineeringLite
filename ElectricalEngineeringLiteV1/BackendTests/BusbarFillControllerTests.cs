@@ -69,7 +69,7 @@ namespace BackendTests {
 
             // Act
             foreach (var consumer in _consumers) {
-                busbarFillController.AddConsumerOnBus(consumer);
+                busbarFillController.AddConsumerOnBus(consumer,5);
             }
 
             var fillingBusBar = busbarFillController.GetBusbar();
@@ -112,7 +112,7 @@ namespace BackendTests {
 
             // Act
             for (int i = 0; i < 10; i++) {
-                busbarFillController.AddConsumerOnBus(testConsumer);
+                busbarFillController.AddConsumerOnBus(testConsumer, 5);
             }
 
             var fillingBusBar = busbarFillController.GetBusbar();
@@ -133,7 +133,7 @@ namespace BackendTests {
 
             // Act
             foreach (var consumer in _consumers) {
-                busbarFillController.AddConsumerOnBus(consumer);
+                busbarFillController.AddConsumerOnBus(consumer, 5);
             }
 
             busbarFillController.DelConsumerOnBus(_consumers[0]);

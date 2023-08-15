@@ -343,7 +343,7 @@ namespace BillingFillingController.Contrlollers.Cable {
 
         #endregion
 
-        public CableFillController(BaseConsumer consumer, double cableLength = 5) {
+        public CableFillController(BaseConsumer consumer, double cableLength) {
             _consumer = consumer;
             _cableLength = cableLength;
             _cable = new BaseCable();

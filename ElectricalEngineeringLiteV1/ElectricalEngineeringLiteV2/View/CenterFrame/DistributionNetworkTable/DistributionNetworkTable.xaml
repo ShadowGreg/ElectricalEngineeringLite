@@ -11,6 +11,11 @@
             <StackPanel DataContext="{DynamicResource ViewModel}" Margin="10">
                 <Label Content="{Binding Node.Description, UpdateSourceTrigger=PropertyChanged}" />
                 <TreeView ItemsSource="{Binding Node.Children, UpdateSourceTrigger=PropertyChanged}" SelectedItemChanged="TreeView_SelectedItemChanged">
+                    <TreeView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Click="Edit_Click" Header="Редактировать" />
+                        </ContextMenu>
+                    </TreeView.ContextMenu>
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding .Children, UpdateSourceTrigger=PropertyChanged}">
                             <Label Content="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />

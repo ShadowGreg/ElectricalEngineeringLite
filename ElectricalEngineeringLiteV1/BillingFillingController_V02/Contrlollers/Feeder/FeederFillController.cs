@@ -17,7 +17,7 @@ namespace BillingFillingController.Contrlollers.Feeder {
             _consumerFillController = new ConsumerFillController();
         }
 
-        public BaseFeeder GetFeeder(int num, double maxVoltageDrop, double length = 5) {
+        public BaseFeeder GetFeeder(int num, double maxVoltageDrop, double length) {
             BaseFeeder outputFeeder = new BaseFeeder() {
                 Consumer = Consumer
             };

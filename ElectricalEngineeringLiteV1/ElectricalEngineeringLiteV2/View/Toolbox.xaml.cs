@@ -25,6 +25,10 @@ namespace ElectricalEngineeringLiteV1.View {
 
         private void Calculate_Consumer(object sender, RoutedEventArgs e) {
             _viewModel.RowsAssembly();
+            MessageBox.Show("Расчёт окончен",
+                "Расчёт",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e) {

@@ -64,7 +64,7 @@ namespace BillingFillingController.Contrlollers.ElectricalPanel {
             }
             else {
                 foreach (var consumer in consumers) {
-                    AddConsumerOnPanel(consumer, busbarNum);
+                    AddConsumerOnPanel(consumer, busbarNum: busbarNum);
                 }
             }
         }
