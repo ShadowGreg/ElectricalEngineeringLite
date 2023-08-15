@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using BillingFillingController.Contrlollers.Consumer;
 using CoreV01.Feeder;
 
 namespace ElectricalEngineeringLiteV1.View.Consumer {
     public partial class AddConsumer: Window {
-        private readonly ViewModel.ViewModel _viewModel;
+        private ViewModel.ViewModel _viewModel;
         private ConsumerFillController _consumerFillController;
 
         public AddConsumer() {
@@ -23,8 +24,13 @@ namespace ElectricalEngineeringLiteV1.View.Consumer {
         }
 
         private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {
+            _viewModel = (ViewModel.ViewModel)Application.Current.Resources["ViewModel"];
             TextBox textBox = (TextBox)sender;
             _viewModel.AddedConsumer.TechnologicalNumber = textBox.Text;
+        }
+        protected override void OnClosed(EventArgs e) {
+            base.OnClosed(e);
+            Close();
         }
     }
 }

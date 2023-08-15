@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using ElectricalEngineeringLiteV1.View.Help;
 
 namespace ElectricalEngineeringLiteV1.View {
@@ -7,6 +8,7 @@ namespace ElectricalEngineeringLiteV1.View {
     /// </summary>
     public partial class MainWindow {
         private readonly ViewModel.ViewModel _viewModel;
+
         public MainWindow() {
             InitializeComponent();
             _viewModel = (ViewModel.ViewModel)Application.Current.Resources["ViewModel"];
@@ -28,6 +30,11 @@ namespace ElectricalEngineeringLiteV1.View {
         private void JobDescription_OnClick(object sender, RoutedEventArgs e) {
             Window jobDescription = new JobDescription();
             jobDescription.Show();
+        }
+
+        protected override void OnClosed(EventArgs e) {
+            base.OnClosed(e);
+            Close();
         }
     }
 }

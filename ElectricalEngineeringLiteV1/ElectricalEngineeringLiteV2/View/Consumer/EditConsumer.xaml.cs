@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ElectricalEngineeringLiteV1.View.Consumer {
@@ -8,6 +9,11 @@ namespace ElectricalEngineeringLiteV1.View.Consumer {
         }
 
         private void Close_Window(object sender, RoutedEventArgs e) {
+            Close();
+        }
+
+        protected override void OnClosed(EventArgs e) {
+            base.OnClosed(e);
             Close();
         }
     }
