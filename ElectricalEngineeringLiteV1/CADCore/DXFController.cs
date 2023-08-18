@@ -13,12 +13,12 @@ namespace CADCore {
         private DxfDocument doc;
 
         // your DXF file name
-        string file;
+        private string _fileName;
         private Layer main, table, text;
 
 
-        public DXFController(string fileName = "sample.dxf") {
-            file = fileName;
+        public DXFController(string fileNameName = "sample.dxf") {
+            _fileName = fileNameName;
             // create a new document, by default it will create an AutoCad2000 DXF version
             doc = new DxfDocument();
             main = new Layer("ЭМ линии");
@@ -42,15 +42,15 @@ namespace CADCore {
 
         private void SaveFile() {
             // save to file
-            doc.Save(file);
+            doc.Save(_fileName);
 
             // this check is optional but recommended before loading a DXF file
-            DxfVersion dxfVersion = DxfDocument.CheckDxfFileVersion(file);
+            DxfVersion dxfVersion = DxfDocument.CheckDxfFileVersion(_fileName);
             // netDxf is only compatible with AutoCad2000 and higher DXF versions
             if (dxfVersion < DxfVersion.AutoCad2000) throw new Exception("Версия ниже AutoCad2000");
 
             // load file
-            DxfDocument loaded = DxfDocument.Load(file);
+            DxfDocument loaded = DxfDocument.Load(_fileName);
         }
 
         private void AddTextToDoc(List<TextData> textCoordinate, double[] delta) {
@@ -61,7 +61,7 @@ namespace CADCore {
                         data.Rotation,
                         data.Text));
                 entity.Layer = text;
-                
+
                 // add your entities here
                 doc.Entities.Add(entity);
             }
@@ -346,7 +346,8 @@ namespace CADCore {
             return vector;
         }
 
-        public Vector2 DrawPanel(BaseElectricalPanel panel) {
+        public Vector2 DrawPanel(BaseElectricalPanel panel, string filename) {
+            _fileName = filename;
             Vector2 vector = new Vector2();
             Vector2 tempStart = new Vector2();
             tempStart = DrawDiagramFrame(tempStart);

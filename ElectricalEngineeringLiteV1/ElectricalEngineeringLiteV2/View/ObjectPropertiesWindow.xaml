@@ -15,8 +15,20 @@
             VerticalScrollBarVisibility="Auto">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Key}" Header="Свойство" />
-                <DataGridTextColumn Binding="{Binding Value}" Header="Значение" />
+                <DataGridTemplateColumn Header="Название" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Key}" ToolTip="{Binding Key}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Значение" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Value}" ToolTip="{Binding Value}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

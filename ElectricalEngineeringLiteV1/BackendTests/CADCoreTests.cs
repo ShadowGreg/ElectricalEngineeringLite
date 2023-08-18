@@ -99,7 +99,7 @@ namespace BackendTests {
                 { consumer, consumer, consumer, consumer, consumer, consumer, consumer, });
             var panel = electricalPanelFillController.GetPanel();
 
-            _dxfController.DrawPanel(panel);
+            _dxfController.DrawPanel(panel, "sample.dxf");
 
             // Assert
         }

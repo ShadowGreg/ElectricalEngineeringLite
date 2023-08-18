@@ -75,7 +75,7 @@
             VerticalAlignment="Center">
             <Menu HorizontalAlignment="Center" Margin="10">
                 <MenuItem
-                    Click="MenuItem_OnClick"
+                    Click="CreateCad_OnClick"
                     Header="_Сформировать схему"
                     ToolTip="Сохранить схему в формате DXF в папке с программой" />
                 <MenuItem Header="_Помощь">
