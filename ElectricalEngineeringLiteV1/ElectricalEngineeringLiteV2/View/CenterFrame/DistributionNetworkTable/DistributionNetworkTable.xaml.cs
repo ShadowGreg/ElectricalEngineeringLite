@@ -27,12 +27,18 @@ namespace ElectricalEngineeringLiteV1.View.CenterFrame.DistributionNetworkTable 
                     "Информация",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
-            } else if (temp.GetType() == typeof(BaseConsumer)) {
+            }
+            else if (temp.GetType() == typeof(BaseConsumer)) {
                 Window editConsumer = new EditConsumer();
                 editConsumer.Show();
-            }else if (temp.GetType() == typeof(BaseCable)) {
+            }
+            else if (temp.GetType() == typeof(BaseCable)) {
                 Window editCable = new EditCable();
                 editCable.Show();
+            }
+            else if (temp.GetType() == typeof(BaseCircuitBreaker)) {
+                Window editCircuitBreaker = new EditCircuitBreaker();
+                editCircuitBreaker.Show();
             }
 
             var test = "";

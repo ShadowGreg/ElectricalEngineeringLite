@@ -1,15 +1,12 @@
 ﻿<Window
     Height="520"
-    Title="EditCable"
+    Title="Редактор кабель"
     Width="800"
     mc:Ignorable="d"
     x:Class="ElectricalEngineeringLiteV1.View.EditElements.EditCable"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:feeder="clr-namespace:CoreV01.Feeder;assembly=CoreV02"
-    xmlns:local="clr-namespace:ElectricalEngineeringLiteV1.View.EditElements"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="clr-namespace:ElectricalEngineeringLiteV1.ViewModel"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <StackPanel Margin="10">

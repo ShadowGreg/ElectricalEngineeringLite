@@ -5,7 +5,6 @@ using CoreV01.Feeder;
 namespace BillingFillingController.Contrlollers.Consumer {
     public class ConsumerFillController {
         private readonly ConsumerCalculator _calculator;
-
         public ConsumerFillController() {
             _calculator = new ConsumerCalculator();
         }

@@ -1,6 +1,6 @@
 ﻿<Window
-    Height="450"
-    Title="EditCircuitBreaker"
+    Height="520"
+    Title="Редактор автоматического выключателя"
     Width="800"
     mc:Ignorable="d"
     x:Class="ElectricalEngineeringLiteV1.View.EditElements.EditCircuitBreaker"
@@ -24,6 +24,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -31,54 +32,54 @@
                         </Grid.ColumnDefinitions>
 
                         <!--  Name on Bus  -->
-                        <Label Content="Name on Bus:" Grid.Row="0" />
+                        <Label Content="Наименование автомата на шине :" Grid.Row="0" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="0"
-                            Text="{Binding SelectedCircuitBreaker.NameOnBus}" />
+                            Text="{Binding SelectedObject.Obj.NameOnBus}" />
                         <!--  Type  -->
-                        <Label Content="Type:" Grid.Row="1" />
+                        <Label Content="Тип АВ по каталогу производителя:" Grid.Row="1" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="1"
-                            Text="{Binding SelectedCircuitBreaker.Type}" />
+                            Text="{Binding SelectedObject.Obj.Type}" />
                         <!--  Dimensions  -->
-                        <Label Content="Dimensions:" Grid.Row="2" />
+                        <Label Content="Габарит автомтаического выключателя:" Grid.Row="2" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="2"
-                            Text="{Binding SelectedCircuitBreaker.Dimensions}" />
+                            Text="{Binding SelectedObject.Obj.Dimensions}" />
                         <!--  Response Curve  -->
-                        <Label Content="Response Curve:" Grid.Row="3" />
+                        <Label Content="Кривая срабатывания автоматического выключателя:" Grid.Row="3" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="3"
-                            Text="{Binding SelectedCircuitBreaker.ResponseCurve}" />
+                            Text="{Binding SelectedObject.Obj.ResponseCurve}" />
                         <!--  Rated Current  -->
-                        <Label Content="Rated Current, A:" Grid.Row="4" />
+                        <Label Content=" Номинальный ток автоматического выключателя, A:" Grid.Row="4" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="4"
-                            Text="{Binding SelectedCircuitBreaker.RatedCurrent}" />
+                            Text="{Binding SelectedObject.Obj.RatedCurrent}" />
                         <!--  Number of Poles  -->
-                        <Label Content="Number of Poles:" Grid.Row="5" />
+                        <Label Content="Число полюсов автоматического выключателя:" Grid.Row="5" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="5"
-                            Text="{Binding SelectedCircuitBreaker.NumberPoles}" />
+                            Text="{Binding SelectedObject.Obj.NumberPoles}" />
                         <!--  Switching Capacity  -->
-                        <Label Content="Switching Capacity, kA:" Grid.Row="6" />
+                        <Label Content="Коммутационная способность АВ, kA:" Grid.Row="6" />
                         <TextBox
                             Grid.Column="1"
                             Grid.Row="6"
-                            Text="{Binding SelectedCircuitBreaker.SwitchingCapacity}" />
+                            Text="{Binding SelectedObject.Obj.SwitchingCapacity}" />
                     </Grid>
                 </ScrollViewer>
             </GroupBox>
             <!--  Save Button  -->
             <Button
                 Click="Close_Window"
-                Content="Save and Close Window"
+                Content="Сохранить и закрыть окно"
                 HorizontalAlignment="Right"
                 Margin="10" />
         </StackPanel>
